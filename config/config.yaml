@@ -1,0 +1,460 @@
+# NSE Options Scraper configuration
+
+# TradingView-style names are normalized in code:
+#   FINNIFTY1! -> FINNIFTY, MIDCPNIFTY1! -> MIDCPNIFTY, BAJAJ_AUTO -> BAJAJ-AUTO
+watchlist:
+  - exchange: NSE
+    symbol: NIFTY
+  - exchange: NSE
+    symbol: BANKNIFTY
+  - exchange: NSE
+    symbol: FINNIFTY1!
+  - exchange: NSE
+    symbol: MIDCPNIFTY1!
+  - exchange: NSE
+    symbol: 360ONE
+  - exchange: NSE
+    symbol: ABB
+  - exchange: NSE
+    symbol: ABCAPITAL
+  - exchange: NSE
+    symbol: ADANIENSOL
+  - exchange: NSE
+    symbol: ADANIENT
+  - exchange: NSE
+    symbol: ADANIGREEN
+  - exchange: NSE
+    symbol: ADANIPORTS
+  - exchange: NSE
+    symbol: ADANIPOWER
+  - exchange: NSE
+    symbol: ALKEM
+  - exchange: NSE
+    symbol: AMBER
+  - exchange: NSE
+    symbol: AMBUJACEM
+  - exchange: NSE
+    symbol: ANGELONE
+  - exchange: NSE
+    symbol: APLAPOLLO
+  - exchange: NSE
+    symbol: APOLLOHOSP
+  - exchange: NSE
+    symbol: ASHOKLEY
+  - exchange: NSE
+    symbol: ASIANPAINT
+  - exchange: NSE
+    symbol: ASTRAL
+  - exchange: NSE
+    symbol: AUBANK
+  - exchange: NSE
+    symbol: AUROPHARMA
+  - exchange: NSE
+    symbol: AXISBANK
+  - exchange: NSE
+    symbol: BAJAJ_AUTO
+  - exchange: NSE
+    symbol: BAJAJFINSV
+  - exchange: NSE
+    symbol: BAJAJHLDNG
+  - exchange: NSE
+    symbol: BAJFINANCE
+  - exchange: NSE
+    symbol: BANDHANBNK
+  - exchange: NSE
+    symbol: BANKBARODA
+  - exchange: NSE
+    symbol: BANKINDIA
+  - exchange: NSE
+    symbol: BDL
+  - exchange: NSE
+    symbol: BEL
+  - exchange: NSE
+    symbol: BHARATFORG
+  - exchange: NSE
+    symbol: BHARTIARTL
+  - exchange: NSE
+    symbol: BHEL
+  - exchange: NSE
+    symbol: BIOCON
+  - exchange: NSE
+    symbol: BLUESTARCO
+  - exchange: NSE
+    symbol: BOSCHLTD
+  - exchange: NSE
+    symbol: BPCL
+  - exchange: NSE
+    symbol: BRITANNIA
+  - exchange: NSE
+    symbol: BSE
+  - exchange: NSE
+    symbol: CAMS
+  - exchange: NSE
+    symbol: CANBK
+  - exchange: NSE
+    symbol: CDSL
+  - exchange: NSE
+    symbol: CGPOWER
+  - exchange: NSE
+    symbol: CHOLAFIN
+  - exchange: NSE
+    symbol: CIPLA
+  - exchange: NSE
+    symbol: COALINDIA
+  - exchange: NSE
+    symbol: COCHINSHIP
+  - exchange: NSE
+    symbol: COFORGE
+  - exchange: NSE
+    symbol: COLPAL
+  - exchange: NSE
+    symbol: CONCOR
+  - exchange: NSE
+    symbol: CROMPTON
+  - exchange: NSE
+    symbol: CUMMINSIND
+  - exchange: NSE
+    symbol: DABUR
+  - exchange: NSE
+    symbol: DALBHARAT
+  - exchange: NSE
+    symbol: DELHIVERY
+  - exchange: NSE
+    symbol: DIVISLAB
+  - exchange: NSE
+    symbol: DIXON
+  - exchange: NSE
+    symbol: DLF
+  - exchange: NSE
+    symbol: DMART
+  - exchange: NSE
+    symbol: DRREDDY
+  - exchange: NSE
+    symbol: EICHERMOT
+  - exchange: NSE
+    symbol: ETERNAL
+  - exchange: NSE
+    symbol: EXIDEIND
+  - exchange: NSE
+    symbol: FEDERALBNK
+  - exchange: NSE
+    symbol: FORCEMOT
+  - exchange: NSE
+    symbol: FORTIS
+  - exchange: NSE
+    symbol: GAIL
+  - exchange: NSE
+    symbol: GLENMARK
+  - exchange: NSE
+    symbol: GMRAIRPORT
+  - exchange: NSE
+    symbol: GODFRYPHLP
+  - exchange: NSE
+    symbol: GODREJCP
+  - exchange: NSE
+    symbol: GODREJPROP
+  - exchange: NSE
+    symbol: GRASIM
+  - exchange: NSE
+    symbol: HAL
+  - exchange: NSE
+    symbol: HAVELLS
+  - exchange: NSE
+    symbol: HCLTECH
+  - exchange: NSE
+    symbol: HDFCAMC
+  - exchange: NSE
+    symbol: HDFCBANK
+  - exchange: NSE
+    symbol: HDFCLIFE
+  - exchange: NSE
+    symbol: HEROMOTOCO
+  - exchange: NSE
+    symbol: HINDALCO
+  - exchange: NSE
+    symbol: HINDPETRO
+  - exchange: NSE
+    symbol: HINDUNILVR
+  - exchange: NSE
+    symbol: HINDZINC
+  - exchange: NSE
+    symbol: HYUNDAI
+  - exchange: NSE
+    symbol: ICICIBANK
+  - exchange: NSE
+    symbol: ICICIGI
+  - exchange: NSE
+    symbol: ICICIPRULI
+  - exchange: NSE
+    symbol: IDEA
+  - exchange: NSE
+    symbol: IDFCFIRSTB
+  - exchange: NSE
+    symbol: IEX
+  - exchange: NSE
+    symbol: INDHOTEL
+  - exchange: NSE
+    symbol: INDIANB
+  - exchange: NSE
+    symbol: INDIGO
+  - exchange: NSE
+    symbol: INDUSINDBK
+  - exchange: NSE
+    symbol: INDUSTOWER
+  - exchange: NSE
+    symbol: INFY
+  - exchange: NSE
+    symbol: INOXWIND
+  - exchange: NSE
+    symbol: IOC
+  - exchange: NSE
+    symbol: IREDA
+  - exchange: NSE
+    symbol: IRFC
+  - exchange: NSE
+    symbol: ITC
+  - exchange: NSE
+    symbol: JINDALSTEL
+  - exchange: NSE
+    symbol: JIOFIN
+  - exchange: NSE
+    symbol: JSWENERGY
+  - exchange: NSE
+    symbol: JSWSTEEL
+  - exchange: NSE
+    symbol: JUBLFOOD
+  - exchange: NSE
+    symbol: KALYANKJIL
+  - exchange: NSE
+    symbol: KAYNES
+  - exchange: NSE
+    symbol: KEI
+  - exchange: NSE
+    symbol: KFINTECH
+  - exchange: NSE
+    symbol: KOTAKBANK
+  - exchange: NSE
+    symbol: KPITTECH
+  - exchange: NSE
+    symbol: LAURUSLABS
+  - exchange: NSE
+    symbol: LICHSGFIN
+  - exchange: NSE
+    symbol: LICI
+  - exchange: NSE
+    symbol: LODHA
+  - exchange: NSE
+    symbol: LT
+  - exchange: NSE
+    symbol: LTF
+  - exchange: NSE
+    symbol: LTM
+  - exchange: NSE
+    symbol: LUPIN
+  - exchange: NSE
+    symbol: MANAPPURAM
+  - exchange: NSE
+    symbol: MANKIND
+  - exchange: NSE
+    symbol: MARICO
+  - exchange: NSE
+    symbol: MARUTI
+  - exchange: NSE
+    symbol: MAXHEALTH
+  - exchange: NSE
+    symbol: MAZDOCK
+  - exchange: NSE
+    symbol: MCX
+  - exchange: NSE
+    symbol: MFSL
+  - exchange: NSE
+    symbol: MOTHERSON
+  - exchange: NSE
+    symbol: MOTILALOFS
+  - exchange: NSE
+    symbol: MPHASIS
+  - exchange: NSE
+    symbol: MUTHOOTFIN
+  - exchange: NSE
+    symbol: NATIONALUM
+  - exchange: NSE
+    symbol: NAUKRI
+  - exchange: NSE
+    symbol: NBCC
+  - exchange: NSE
+    symbol: NESTLEIND
+  - exchange: NSE
+    symbol: NHPC
+  - exchange: NSE
+    symbol: NMDC
+  - exchange: NSE
+    symbol: NTPC
+  - exchange: NSE
+    symbol: NUVAMA
+  - exchange: NSE
+    symbol: NYKAA
+  - exchange: NSE
+    symbol: OBEROIRLTY
+  - exchange: NSE
+    symbol: OFSS
+  - exchange: NSE
+    symbol: OIL
+  - exchange: NSE
+    symbol: ONGC
+  - exchange: NSE
+    symbol: PAGEIND
+  - exchange: NSE
+    symbol: PATANJALI
+  - exchange: NSE
+    symbol: PAYTM
+  - exchange: NSE
+    symbol: PERSISTENT
+  - exchange: NSE
+    symbol: PETRONET
+  - exchange: NSE
+    symbol: PFC
+  - exchange: NSE
+    symbol: PGEL
+  - exchange: NSE
+    symbol: PHOENIXLTD
+  - exchange: NSE
+    symbol: PIDILITIND
+  - exchange: NSE
+    symbol: PIIND
+  - exchange: NSE
+    symbol: PNB
+  - exchange: NSE
+    symbol: PNBHOUSING
+  - exchange: NSE
+    symbol: POLICYBZR
+  - exchange: NSE
+    symbol: POLYCAB
+  - exchange: NSE
+    symbol: POWERGRID
+  - exchange: NSE
+    symbol: POWERINDIA
+  - exchange: NSE
+    symbol: PREMIERENE
+  - exchange: NSE
+    symbol: PRESTIGE
+  - exchange: NSE
+    symbol: RBLBANK
+  - exchange: NSE
+    symbol: RECLTD
+  - exchange: NSE
+    symbol: RELIANCE
+  - exchange: NSE
+    symbol: RVNL
+  - exchange: NSE
+    symbol: SAIL
+  - exchange: NSE
+    symbol: SAMMAANCAP
+  - exchange: NSE
+    symbol: SBICARD
+  - exchange: NSE
+    symbol: SBILIFE
+  - exchange: NSE
+    symbol: SBIN
+  - exchange: NSE
+    symbol: SHREECEM
+  - exchange: NSE
+    symbol: SHRIRAMFIN
+  - exchange: NSE
+    symbol: SIEMENS
+  - exchange: NSE
+    symbol: SOLARINDS
+  - exchange: NSE
+    symbol: SONACOMS
+  - exchange: NSE
+    symbol: SRF
+  - exchange: NSE
+    symbol: SUNPHARMA
+  - exchange: NSE
+    symbol: SUPREMEIND
+  - exchange: NSE
+    symbol: SUZLON
+  - exchange: NSE
+    symbol: SWIGGY
+  - exchange: NSE
+    symbol: TATACONSUM
+  - exchange: NSE
+    symbol: TATAELXSI
+  - exchange: NSE
+    symbol: TATAPOWER
+  - exchange: NSE
+    symbol: TATASTEEL
+  - exchange: NSE
+    symbol: TCS
+  - exchange: NSE
+    symbol: TECHM
+  - exchange: NSE
+    symbol: TIINDIA
+  - exchange: NSE
+    symbol: TITAN
+  - exchange: NSE
+    symbol: TMPV
+  - exchange: NSE
+    symbol: TORNTPHARM
+  - exchange: NSE
+    symbol: TRENT
+  - exchange: NSE
+    symbol: TVSMOTOR
+  - exchange: NSE
+    symbol: ULTRACEMCO
+  - exchange: NSE
+    symbol: UNIONBANK
+  - exchange: NSE
+    symbol: UNITDSPR
+  - exchange: NSE
+    symbol: UNOMINDA
+  - exchange: NSE
+    symbol: UPL
+  - exchange: NSE
+    symbol: VBL
+  - exchange: NSE
+    symbol: VEDL
+  - exchange: NSE
+    symbol: VMM
+  - exchange: NSE
+    symbol: VOLTAS
+  - exchange: NSE
+    symbol: WAAREEENER
+  - exchange: NSE
+    symbol: WIPRO
+  - exchange: NSE
+    symbol: YESBANK
+  - exchange: NSE
+    symbol: ZYDUSLIFE
+# Sprint 1 daily collection universe (expand over time; full watchlist stays above)
+collection:
+  active_symbols:
+    - NIFTY
+    - BANKNIFTY
+
+# Scraping
+scraping:
+  headless: false
+  page_load_timeout: 30
+  api_timeout: 20
+  delay_between_requests: 0.8
+  max_retries: 3
+  # NSE structure (post Nov 2024): NIFTY = weekly (Tue); other indices = monthly
+  # NSE lists ~6 weeklies before the first monthly, so 3 expiries only reach
+  # ~19 DTE and cmt30 clamps to the last node. 6 keeps a >=35 DTE node listed
+  # across the whole expiry cycle so cmt30 interpolates.
+  nifty_weekly_expiries: 6
+  monthly_index_expiries: 2
+  equity_expiries: 1
+  equity_roll_days_before_expiry: 5
+  # Dataset B (later): ATM band + top movers; not wired in sprint 1
+  atm_strike_band: 5
+  intraday_strike_cap: 40
+  strikes_around_atm: 10
+
+paths:
+  download_dir: data/raw
+  nse_reports: data/raw/nse_reports
+
+logging:
+  level: INFO
+  file: logs/scraper.log

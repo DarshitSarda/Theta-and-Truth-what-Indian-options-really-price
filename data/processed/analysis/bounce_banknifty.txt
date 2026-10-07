@@ -1,0 +1,128 @@
+﻿BANKNIFTY: 4681 sessions 2007-09-17 .. 2026-09-23
+feature coverage (share of stress days with a value):
+  front_atm_iv 75%, d5_cmt30_iv 18%, iv_minus_rv20 75%, rr25 73%, d5_rr25 17%, bf25 73%, term_slope 42%, pcr_all 91%, d5_pcr_all 90%, put_oi_chg1 89%, put_wall_dist 89%, maxpain_dist 93%, vix_d5 91%
+stress days: discovery 1181, holdout 740
+Bonferroni K = 26; holdout threshold p < 0.0019
+
+PRICE-ONLY BASELINE (stress days)
+  discovery fwd5: n=1181, mean +0.30%, P(>= 2.0%) 34.0% | dd20_p: IC -0.011 (p=0.844); ret5_p: IC -0.021 (p=0.684); rv20_p: IC -0.075 (p=0.181)
+  discovery fwd10: n=1181, mean +0.53%, P(>= 3.0%) 33.4% | dd20_p: IC -0.015 (p=0.885); ret5_p: IC +0.019 (p=0.718); rv20_p: IC -0.046 (p=0.545)
+  holdout   fwd5: n=738, mean +0.17%, P(>= 2.0%) 26.8% | dd20_p: IC +0.128 (p=0.053); ret5_p: IC +0.037 (p=0.540); rv20_p: IC +0.016 (p=0.791)
+  holdout   fwd10: n=737, mean +0.45%, P(>= 3.0%) 29.4% | dd20_p: IC +0.120 (p=0.138); ret5_p: IC +0.111 (p=0.126); rv20_p: IC +0.087 (p=0.319)
+
+STRESS DAYS - PRIMARY RESULT (partial IC = beyond price-only state)
+      feature  h  ic_discovery  partial_ic_discovery  partial_p_discovery  ic_holdout  partial_ic_holdout  partial_p_holdout  PASS
+         bf25  5        -0.080                -0.059                0.222      -0.067              -0.055              0.359 False
+         bf25 10         0.007                 0.009                0.874      -0.073              -0.071              0.272 False
+  d5_cmt30_iv  5           NaN                   NaN                  NaN       0.019               0.082              0.457 False
+  d5_cmt30_iv 10           NaN                   NaN                  NaN       0.042               0.175              0.194 False
+   d5_pcr_all  5         0.048                 0.068                0.137       0.030               0.032              0.552 False
+   d5_pcr_all 10         0.105                 0.088                0.031       0.071               0.025              0.661 False
+      d5_rr25  5         0.063                 0.060                0.607       0.314               0.288              0.044 False
+      d5_rr25 10         0.057                 0.061                0.578       0.625               0.623              0.000 False
+ front_atm_iv  5        -0.102                -0.068                0.239       0.055               0.128              0.040 False
+ front_atm_iv 10        -0.102                -0.086                0.313       0.086               0.115              0.117 False
+iv_minus_rv20  5         0.051                 0.004                0.939       0.018               0.035              0.640 False
+iv_minus_rv20 10         0.021                -0.000                0.999      -0.026               0.020              0.806 False
+ maxpain_dist  5        -0.030                -0.053                0.245      -0.043               0.035              0.538 False
+ maxpain_dist 10        -0.035                -0.050                0.408      -0.062               0.046              0.484 False
+      pcr_all  5         0.003                 0.009                0.868       0.070               0.014              0.842 False
+      pcr_all 10         0.021                 0.019                0.780       0.082              -0.009              0.913 False
+  put_oi_chg1  5         0.005                 0.007                0.786      -0.002              -0.001              0.973 False
+  put_oi_chg1 10         0.041                 0.033                0.247       0.003              -0.006              0.860 False
+put_wall_dist  5         0.063                 0.089                0.052       0.044               0.047              0.386 False
+put_wall_dist 10         0.080                 0.091                0.099       0.076               0.066              0.274 False
+         rr25  5        -0.003                -0.023                0.679      -0.046              -0.106              0.116 False
+         rr25 10        -0.016                -0.016                0.837      -0.013              -0.045              0.559 False
+   term_slope  5         0.257                 0.185                0.018       0.077               0.029              0.726 False
+   term_slope 10         0.509                 0.512                0.000       0.131               0.101              0.335 False
+       vix_d5  5        -0.010                -0.035                0.504      -0.019               0.026              0.659 False
+       vix_d5 10        -0.048                -0.043                0.432      -0.038               0.051              0.456 False
+
+TERCILES (stress days): mean fwd return % and bounce hit-rate %, low vs high feature percentile
+    split  h       feature    n  fwd_lo_terc  fwd_hi_terc  bounce%_lo  bounce%_hi
+discovery  5  front_atm_iv  694         1.01        -0.14       30.99       29.73
+discovery  5   d5_cmt30_iv    0          NaN          NaN         NaN         NaN
+discovery  5 iv_minus_rv20  694        -0.39         0.13       23.63       26.74
+discovery  5          rr25  660         0.32         0.20       31.76       27.72
+discovery  5       d5_rr25  276         0.17         0.63       30.56       35.48
+discovery  5          bf25  660         0.39        -0.43       30.96       25.22
+discovery  5    term_slope   77        -0.16         1.04       16.67       15.38
+discovery  5       pcr_all 1016         0.32         0.89       31.98       36.08
+discovery  5    d5_pcr_all 1000        -0.04         0.62       32.01       34.66
+discovery  5   put_oi_chg1  973         0.29         0.46       34.65       33.05
+discovery  5 put_wall_dist  973         0.26         1.30       33.11       40.59
+discovery  5  maxpain_dist 1054         1.81         0.36       46.43       32.50
+discovery  5        vix_d5 1020         0.27         0.26       31.38       34.88
+discovery 10  front_atm_iv  694         1.69         0.26       35.21       27.93
+discovery 10   d5_cmt30_iv    0          NaN          NaN         NaN         NaN
+discovery 10 iv_minus_rv20  694        -0.14         0.45       29.11       26.74
+discovery 10          rr25  660         0.55         0.53       29.80       25.00
+discovery 10       d5_rr25  276         0.92         1.52       34.26       33.33
+discovery 10          bf25  660         0.53         0.16       27.92       26.96
+discovery 10    term_slope   77        -0.65         2.36        2.78       30.77
+discovery 10       pcr_all 1016         0.51         1.98       29.46       38.61
+discovery 10    d5_pcr_all 1000         0.01         1.64       23.02       41.16
+discovery 10   put_oi_chg1  973         0.39         1.18       27.96       35.63
+discovery 10 put_wall_dist  973         0.67         2.68       30.91       45.29
+discovery 10  maxpain_dist 1054         2.62         0.77       44.05       34.06
+discovery 10        vix_d5 1020         0.82         0.59       33.10       30.93
+  holdout  5  front_atm_iv  736        -0.18         0.13       15.67       30.37
+  holdout  5   d5_cmt30_iv  352         0.04         0.35       16.05       25.00
+  holdout  5 iv_minus_rv20  736         0.30        -0.00       26.10       30.36
+  holdout  5          rr25  734         0.19        -0.35       31.12       14.37
+  holdout  5       d5_rr25   45        -1.85        -0.05       18.75       15.79
+  holdout  5          bf25  734         0.70        -0.10       29.36       25.97
+  holdout  5    term_slope  721        -0.13         0.64       28.06       27.74
+  holdout  5       pcr_all  737        -0.05         0.82       25.23       31.91
+  holdout  5    d5_pcr_all  736         0.13         0.31       23.65       25.81
+  holdout  5   put_oi_chg1  736         0.24         0.39       29.23       26.32
+  holdout  5 put_wall_dist  737         0.32         0.13       23.23       32.62
+  holdout  5  maxpain_dist  737         0.28         0.10       28.16       27.19
+  holdout  5        vix_d5  731         0.15         0.09       24.88       26.35
+  holdout 10  front_atm_iv  735        -0.20         0.46       20.90       31.19
+  holdout 10   d5_cmt30_iv  351         0.89         1.09       24.69       27.67
+  holdout 10 iv_minus_rv20  735         0.80        -0.02       33.33       28.67
+  holdout 10          rr25  733         0.31         0.23       32.18       20.62
+  holdout 10       d5_rr25   44        -3.35         2.82        6.67       42.11
+  holdout 10          bf25  733         1.30         0.15       32.77       26.06
+  holdout 10    term_slope  720        -0.28         1.94       25.63       37.96
+  holdout 10       pcr_all  736         0.10         1.52       25.98       36.17
+  holdout 10    d5_pcr_all  735         0.36         1.11       27.08       29.03
+  holdout 10   put_oi_chg1  735         0.54         0.57       30.89       29.39
+  holdout 10 put_wall_dist  736         0.32         0.79       28.06       33.69
+  holdout 10  maxpain_dist  736         1.31         0.34       31.07       29.40
+  holdout 10        vix_d5  730         0.73        -0.13       27.86       27.63
+
+SECONDARY - ALL DAYS (unconditional), partial IC
+      feature  h  partial_ic_discovery  partial_ic_holdout  partial_p_discovery  partial_p_holdout
+         bf25  5                -0.006               0.021                0.873              0.589
+         bf25 10                 0.025              -0.001                0.523              0.990
+  d5_cmt30_iv  5                   NaN               0.020                  NaN              0.791
+  d5_cmt30_iv 10                   NaN               0.082                  NaN              0.290
+   d5_pcr_all  5                 0.035               0.039                0.271              0.287
+   d5_pcr_all 10                 0.033               0.005                0.220              0.882
+      d5_rr25  5                 0.015              -0.058                0.849              0.421
+      d5_rr25 10                -0.010               0.138                0.878              0.125
+ front_atm_iv  5                -0.006               0.036                0.884              0.396
+ front_atm_iv 10                -0.020               0.044                0.728              0.467
+iv_minus_rv20  5                 0.001               0.035                0.984              0.458
+iv_minus_rv20 10                -0.005               0.032                0.911              0.566
+ maxpain_dist  5                -0.046               0.001                0.157              0.982
+ maxpain_dist 10                -0.030               0.032                0.512              0.483
+      pcr_all  5                 0.045               0.015                0.222              0.668
+      pcr_all 10                 0.043              -0.016                0.372              0.751
+  put_oi_chg1  5                -0.006              -0.004                0.767              0.821
+  put_oi_chg1 10                 0.006              -0.012                0.730              0.525
+put_wall_dist  5                 0.076               0.030                0.020              0.378
+put_wall_dist 10                 0.074               0.043                0.075              0.310
+         rr25  5                -0.062              -0.104                0.130              0.017
+         rr25 10                -0.068              -0.083                0.218              0.139
+   term_slope  5                 0.066               0.011                0.203              0.833
+   term_slope 10                 0.231               0.058                0.004              0.366
+       vix_d5  5                 0.015               0.031                0.709              0.441
+       vix_d5 10                 0.010               0.053                0.826              0.243
+
+================================================================================
+VERDICT: no option feature passes the pre-declared rule for BANKNIFTY.
+================================================================================

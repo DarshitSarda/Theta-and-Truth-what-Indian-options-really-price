@@ -1,0 +1,14 @@
+selenium
+webdriver-manager
+pyyaml
+pandas
+numpy
+scipy
+openpyxl
+jupyter
+requests
+pyarrow
+yfinance
+arch
+scikit-learn
+QuantLib  # only scripts/validate_bates.py (independent check of the Bates pricer)

@@ -1,0 +1,142 @@
+Forecast ledger, historical replay: an incrementally learning volatility forecaster vs the options market.
+run time 343s
+
+CHECKS
+  NIFTY: returns vs Stage 4 returns corr 0.997744, max |diff| 2.54e-02 (n 4354)
+  look-ahead (truncation) NIFTY: max relative difference / mismatched availability 0.00e+00
+  BANKNIFTY: returns vs Stage 4 returns corr 0.998290, max |diff| 3.34e-02 (n 4369)
+  look-ahead (truncation) BANKNIFTY: max relative difference / mismatched availability 0.00e+00
+
+--- DISCOVERY 2013-2017: mean QLIKE (lower = better); log-vol RMSE; bias = mean ln(forecast/realised); DM = blend or X vs implied, NW t (positive = better than implied)
+  NIFTY h=5  (n=1222; mean blend weights imp/garch/har 0.28/0.72/0.01)
+    imp        QLIKE 0.3425 rmse 0.506 bias +0.296
+    imp_atm    QLIKE 0.2992 rmse 0.447 bias +0.194  DM t +4.34
+    imp_sc     QLIKE 0.3123 rmse 0.463 bias +0.214  DM t +4.39
+    garch_raw  QLIKE 0.3153 rmse 0.466 bias +0.242  DM t +1.87
+    garch      QLIKE 0.2989 rmse 0.426 bias +0.151  DM t +2.26
+    har        QLIKE 0.3314 rmse 0.467 bias +0.201  DM t +0.68
+    blend      QLIKE 0.3031 rmse 0.443 bias +0.192  DM t +2.55
+    blend_inv  QLIKE 0.3046 rmse 0.459 bias +0.226  DM t +4.05
+    har_fast   QLIKE 0.3335 rmse 0.465 bias +0.193  DM t +0.52
+    blend_fast QLIKE 0.2982 rmse 0.441 bias +0.186  DM t +3.07
+  NIFTY h=21  (n=1222; mean blend weights imp/garch/har 0.24/0.68/0.08)
+    imp        QLIKE 0.1793 rmse 0.330 bias +0.198
+    imp_atm    QLIKE 0.1538 rmse 0.290 bias +0.121  DM t +2.68
+    imp_sc     QLIKE 0.1539 rmse 0.286 bias +0.110  DM t +2.34
+    garch_raw  QLIKE 0.1728 rmse 0.328 bias +0.208  DM t +0.43
+    garch      QLIKE 0.1404 rmse 0.257 bias +0.037  DM t +2.09
+    har        QLIKE 0.1598 rmse 0.296 bias +0.120  DM t +1.44
+    blend      QLIKE 0.1462 rmse 0.275 bias +0.100  DM t +2.01
+    blend_inv  QLIKE 0.1415 rmse 0.278 bias +0.126  DM t +3.12
+    har_fast   QLIKE 0.1610 rmse 0.292 bias +0.102  DM t +1.19
+    blend_fast QLIKE 0.1396 rmse 0.269 bias +0.087  DM t +3.24
+  BANKNIFTY h=5  (n=1229; mean blend weights imp/garch/har 0.56/0.43/0.01)
+    imp        QLIKE 0.3118 rmse 0.445 bias +0.160
+    imp_atm    QLIKE 0.3118 rmse 0.445 bias +0.160  DM t +nan
+    imp_sc     QLIKE 0.3169 rmse 0.464 bias +0.208  DM t -1.18
+    garch_raw  QLIKE 0.3350 rmse 0.477 bias +0.222  DM t -1.52
+    garch      QLIKE 0.3298 rmse 0.448 bias +0.147  DM t -1.14
+    har        QLIKE 0.3601 rmse 0.489 bias +0.215  DM t -3.49
+    blend      QLIKE 0.3166 rmse 0.444 bias +0.153  DM t -0.76
+    blend_inv  QLIKE 0.3142 rmse 0.453 bias +0.182  DM t -0.35
+    har_fast   QLIKE 0.3621 rmse 0.489 bias +0.216  DM t -3.49
+    blend_fast QLIKE 0.3162 rmse 0.438 bias +0.146  DM t -0.43
+  BANKNIFTY h=21  (n=1229; mean blend weights imp/garch/har 0.41/0.56/0.03)
+    imp        QLIKE 0.1373 rmse 0.268 bias +0.078
+    imp_atm    QLIKE 0.1373 rmse 0.268 bias +0.078  DM t +nan
+    imp_sc     QLIKE 0.1397 rmse 0.278 bias +0.110  DM t -0.54
+    garch_raw  QLIKE 0.1455 rmse 0.297 bias +0.155  DM t -0.53
+    garch      QLIKE 0.1343 rmse 0.258 bias +0.035  DM t +0.37
+    har        QLIKE 0.1717 rmse 0.308 bias +0.121  DM t -2.63
+    blend      QLIKE 0.1291 rmse 0.256 bias +0.052  DM t +1.15
+    blend_inv  QLIKE 0.1309 rmse 0.262 bias +0.083  DM t +0.82
+    har_fast   QLIKE 0.1733 rmse 0.305 bias +0.114  DM t -2.33
+    blend_fast QLIKE 0.1290 rmse 0.256 bias +0.054  DM t +1.09
+
+--- HOLDOUT 2018+: mean QLIKE (lower = better); log-vol RMSE; bias = mean ln(forecast/realised); DM = blend or X vs implied, NW t (positive = better than implied)
+  NIFTY h=5  (n=2135; mean blend weights imp/garch/har 0.30/0.67/0.02)
+    imp        QLIKE 0.3826 rmse 0.514 bias +0.308
+    imp_atm    QLIKE 0.3113 rmse 0.439 bias +0.195  DM t +6.78
+    imp_sc     QLIKE 0.3572 rmse 0.471 bias +0.227  DM t +3.37
+    garch_raw  QLIKE 0.3883 rmse 0.488 bias +0.226  DM t -0.19
+    garch      QLIKE 0.3933 rmse 0.455 bias +0.139  DM t -0.29
+    har        QLIKE 0.4302 rmse 0.495 bias +0.202  DM t -1.49
+    blend      QLIKE 0.3663 rmse 0.457 bias +0.188  DM t +0.56
+    blend_inv  QLIKE 0.3612 rmse 0.476 bias +0.228  DM t +1.72
+    har_fast   QLIKE 0.4558 rmse 0.490 bias +0.183  DM t -1.73
+    blend_fast QLIKE 0.3643 rmse 0.462 bias +0.193  DM t +0.87
+  NIFTY h=21  (n=2121; mean blend weights imp/garch/har 0.42/0.56/0.02)
+    imp        QLIKE 0.3075 rmse 0.367 bias +0.199
+    imp_atm    QLIKE 0.2922 rmse 0.325 bias +0.126  DM t +0.76
+    imp_sc     QLIKE 0.3137 rmse 0.330 bias +0.113  DM t -0.20
+    garch_raw  QLIKE 0.2962 rmse 0.368 bias +0.157  DM t +0.37
+    garch      QLIKE 0.3448 rmse 0.337 bias +0.017  DM t -0.98
+    har        QLIKE 0.3688 rmse 0.368 bias +0.111  DM t -1.44
+    blend      QLIKE 0.3160 rmse 0.341 bias +0.111  DM t -0.36
+    blend_inv  QLIKE 0.3067 rmse 0.340 bias +0.122  DM t +0.04
+    har_fast   QLIKE 0.4114 rmse 0.370 bias +0.082  DM t -1.49
+    blend_fast QLIKE 0.3282 rmse 0.347 bias +0.100  DM t -0.89
+  BANKNIFTY h=5  (n=2152; mean blend weights imp/garch/har 0.78/0.22/0.00)
+    imp        QLIKE 0.3626 rmse 0.469 bias +0.205
+    imp_atm    QLIKE 0.3626 rmse 0.469 bias +0.205  DM t +nan
+    imp_sc     QLIKE 0.3642 rmse 0.477 bias +0.222  DM t -0.86
+    garch_raw  QLIKE 0.4524 rmse 0.524 bias +0.253  DM t -2.45
+    garch      QLIKE 0.4554 rmse 0.495 bias +0.183  DM t -2.16
+    har        QLIKE 0.4795 rmse 0.521 bias +0.224  DM t -3.05
+    blend      QLIKE 0.3639 rmse 0.470 bias +0.202  DM t -0.23
+    blend_inv  QLIKE 0.3886 rmse 0.485 bias +0.212  DM t -2.20
+    har_fast   QLIKE 0.4968 rmse 0.516 bias +0.207  DM t -2.95
+    blend_fast QLIKE 0.3926 rmse 0.476 bias +0.193  DM t -2.28
+  BANKNIFTY h=21  (n=2138; mean blend weights imp/garch/har 0.72/0.28/0.01)
+    imp        QLIKE 0.3273 rmse 0.339 bias +0.093
+    imp_atm    QLIKE 0.3273 rmse 0.339 bias +0.093  DM t +nan
+    imp_sc     QLIKE 0.3275 rmse 0.345 bias +0.109  DM t -0.06
+    garch_raw  QLIKE 0.3592 rmse 0.406 bias +0.174  DM t -0.71
+    garch      QLIKE 0.3906 rmse 0.376 bias +0.071  DM t -1.74
+    har        QLIKE 0.4110 rmse 0.400 bias +0.133  DM t -2.52
+    blend      QLIKE 0.3245 rmse 0.339 bias +0.084  DM t +0.24
+    blend_inv  QLIKE 0.3427 rmse 0.356 bias +0.106  DM t -0.97
+    har_fast   QLIKE 0.4400 rmse 0.401 bias +0.109  DM t -2.64
+    blend_fast QLIKE 0.3390 rmse 0.349 bias +0.085  DM t -0.80
+
+PRIMARY TEST (holdout, blend vs implied, Holm over 4):
+  NIFTY h=5: mean QLIKE gain +0.0163, NW t +0.56, p 0.5741, Holm p 1.0000, n 2135 -> fail
+  NIFTY h=21: mean QLIKE gain -0.0085, NW t -0.36, p 0.7219, Holm p 1.0000, n 2121 -> fail
+  BANKNIFTY h=5: mean QLIKE gain -0.0014, NW t -0.23, p 0.8150, Holm p 1.0000, n 2152 -> fail
+  BANKNIFTY h=21: mean QLIKE gain +0.0028, NW t +0.24, p 0.8128, Holm p 1.0000, n 2138 -> fail
+  VERDICT: FAIL
+
+SHUFFLED-DATE PLACEBO (holdout): blend's QLIKE gain over implied with targets circularly shifted >= 1 year; share of the real gain that survives = average-premium part
+  NIFTY h=5: real gain +0.0162; shifted median -0.1110 (5-95% -0.3786..-0.0051); share of shifts >= real 0.01
+  NIFTY h=21: real gain -0.0085; shifted median -0.0909 (5-95% -0.2844..+0.0039); share of shifts >= real 0.07
+  BANKNIFTY h=5: real gain -0.0014; shifted median +0.0201 (5-95% -0.0323..+0.0755); share of shifts >= real 0.85
+  BANKNIFTY h=21: real gain +0.0028; shifted median +0.0181 (5-95% -0.0245..+0.0694); share of shifts >= real 0.81
+
+--- PROBABILITY FORECASTS (next monthly expiry), Brier score (lower = better), NW lag 25
+  discovery NIFTY range: hit rate 0.686 (n 1222); range_model Brier 0.2143 logloss 0.6184 meanp 0.677, range_mkt Brier 0.2155 logloss 0.6225 meanp 0.683, range_base Brier 0.2166 logloss 0.6250 meanp 0.692; model vs range_mkt: gain +0.0012 t +0.33
+  discovery NIFTY seller: hit rate 0.669 (n 1222); seller_model Brier 0.2260 logloss 0.6499 meanp 0.651, seller_base Brier 0.2255 logloss 0.6448 meanp 0.710; model vs seller_base: gain -0.0005 t -0.05
+  discovery BANKNIFTY range: hit rate 0.593 (n 1229); range_model Brier 0.2497 logloss 0.7046 meanp 0.687, range_mkt Brier 0.2493 logloss 0.6933 meanp 0.683, range_base Brier 0.2436 logloss 0.6804 meanp 0.606; model vs range_mkt: gain -0.0004 t -0.11
+  discovery BANKNIFTY seller: hit rate 0.614 (n 1229); seller_model Brier 0.2379 logloss 0.6663 meanp 0.610, seller_base Brier 0.2389 logloss 0.6708 meanp 0.588; model vs seller_base: gain +0.0010 t +0.17
+  holdout NIFTY range: hit rate 0.677 (n 2135); range_model Brier 0.2165 logloss 0.6252 meanp 0.678, range_mkt Brier 0.2188 logloss 0.6293 meanp 0.683, range_base Brier 0.2194 logloss 0.6308 meanp 0.689; model vs range_mkt: gain +0.0023 t +0.83
+  holdout NIFTY seller: hit rate 0.717 (n 2135); seller_model Brier 0.2195 logloss 0.6355 meanp 0.668, seller_base Brier 0.2037 logloss 0.5976 meanp 0.710; model vs seller_base: gain -0.0159 t -2.60
+  holdout BANKNIFTY range: hit rate 0.676 (n 2152); range_model Brier 0.2220 logloss 0.6379 meanp 0.682, range_mkt Brier 0.2190 logloss 0.6299 meanp 0.683, range_base Brier 0.2220 logloss 0.6364 meanp 0.624; model vs range_mkt: gain -0.0030 t -1.52
+  holdout BANKNIFTY seller: hit rate 0.693 (n 2152); seller_model Brier 0.2244 logloss 0.6422 meanp 0.643, seller_base Brier 0.2171 logloss 0.6262 meanp 0.632; model vs seller_base: gain -0.0073 t -1.52
+  SECONDARY (holdout, Holm over 4): NIFTY range gain +0.0023 t +0.83 Holm p 0.404; NIFTY seller gain -0.0159 t -2.60 Holm p 0.037; BANKNIFTY range gain -0.0030 t -1.52 Holm p 0.383; BANKNIFTY seller gain -0.0073 t -1.52 Holm p 0.383
+
+--- CONTROL: direction over the next 5 sessions (expected: no skill)
+  discovery NIFTY: up share 0.578; Brier model 0.2463 base rate 0.2454 coin 0.2500; model vs base gain -0.00090 t -0.99; direction hit rate 0.578 (n 1223)
+  discovery BANKNIFTY: up share 0.564; Brier model 0.2482 base rate 0.2467 coin 0.2500; model vs base gain -0.00148 t -1.94; direction hit rate 0.561 (n 1229)
+  holdout NIFTY: up share 0.560; Brier model 0.2482 base rate 0.2467 coin 0.2500; model vs base gain -0.00145 t -1.73; direction hit rate 0.560 (n 2138)
+  holdout BANKNIFTY: up share 0.546; Brier model 0.2503 base rate 0.2483 coin 0.2500; model vs base gain -0.00201 t -3.50; direction hit rate 0.543 (n 2152)
+
+--- MONEY TEST: Stage 5 monthly straddles, 1 Cr, near-close fills, FUT round; % of capital per year (excess over cash)
+  discovery 2013-2017 const : +0.43%/yr, Sharpe +0.04, worst month -9.59%, mean factor 1.00, skipped cycles 0%
+  discovery 2013-2017 blend : +3.82%/yr, Sharpe +0.43, worst month -6.96%, mean factor 0.89, skipped cycles 28%
+  discovery 2013-2017 naive : +4.77%/yr, Sharpe +0.40, worst month -11.90%, mean factor 0.92, skipped cycles 38%
+    blend - const: +3.33%/yr, NW t +2.28 (n 61 months)
+    naive - const: +4.26%/yr, NW t +1.32 (n 61 months)
+  holdout 2018+ const : +6.11%/yr, Sharpe +0.59, worst month -15.26%, mean factor 1.00, skipped cycles 0%
+  holdout 2018+ blend : +5.05%/yr, Sharpe +0.42, worst month -20.70%, mean factor 0.98, skipped cycles 29%
+  holdout 2018+ naive : +7.37%/yr, Sharpe +0.65, worst month -12.06%, mean factor 1.19, skipped cycles 23%
+    blend - const: -1.05%/yr, NW t -0.55 (n 105 months)
+    naive - const: +1.24%/yr, NW t +0.44 (n 105 months)

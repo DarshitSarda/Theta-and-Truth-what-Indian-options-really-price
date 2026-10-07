@@ -1,0 +1,151 @@
+113 sessions, 339 fits, 2010-06-01 .. 2025-03-10
+
+====================================================================================================
+C0 one-series pricer vs validated two-sided pricer
+====================================================================================================
+[PASS] C0 pricer mode: max |diff|/vega 6.6e-11 vol pt
+
+====================================================================================================
+C1 synthetic recovery (truth = fitted Bates; noise 0.3 vol pt; cold starts)
+====================================================================================================
+   symbol       date  n  fit_rmse  dense_rms
+BANKNIFTY 2010-06-18 14     0.282      1.978
+BANKNIFTY 2016-03-21 24     0.259      0.533
+BANKNIFTY 2020-03-16 45     0.302      0.074
+BANKNIFTY 2025-03-03 45     0.287      0.213
+    NIFTY 2010-06-07 43     0.262      0.086
+    NIFTY 2016-03-21 45     0.242      0.185
+    NIFTY 2020-03-16 54     0.263      0.136
+    NIFTY 2025-03-03 90     0.313      0.391
+
+Parameter recovery (identifiability):
+                          v0    kappa   theta   sigma     rho     lam    mu_j   delta
+median |fit - truth|  0.0014   0.5629  0.0008  0.0487  0.0039  0.0698  0.0069  0.0153
+median |truth|        0.0257  20.5309  0.0163  1.6619  0.6583  0.5925  0.0567  0.1028
+[FAIL] C1 recovery: fit at noise level on 100%, true smile reproduced (<= 0.3 vol pt) on 62% of 8 chains
+
+====================================================================================================
+C2-C4 coverage, nesting, IV coverage
+====================================================================================================
+[PASS] C2 coverage: all three fitted on 100.00% of 113 sessions; Bates converged on 98.23%
+[PASS] C3 nesting: Bates <= both sub-models on 100.00%
+[PASS] C4 IV coverage: 0.000% of model prices without IV
+
+====================================================================================================
+FIT QUALITY (median RMSE, vol points): in-sample / hidden strikes / next day
+====================================================================================================
+                             days  insample  hidden  next_day  p90_insample
+symbol    era        model                                                 
+BANKNIFTY 2008-13    bates      8     0.568     NaN     1.648         1.394
+                     heston     8     0.883     NaN     2.463         1.688
+                     merton     8     0.877     NaN     1.667         1.840
+          2014-19    bates     15     0.279   0.503     0.591         0.522
+                     heston    15     0.553   0.486     0.680         1.032
+                     merton    15     0.725   0.813     0.833         1.271
+          2020-Nov24 bates     15     1.952   1.663     4.440         7.086
+                     heston    15     2.874   2.156     5.080         9.580
+                     merton    15     8.539   8.007    11.177        32.535
+          Nov24-now  bates     15     0.263   0.229     0.347         0.386
+                     heston    15     0.467   0.531     0.445         0.580
+                     merton    15     0.685   0.868     0.640         1.190
+NIFTY     2008-13    bates     15     0.371   0.521     0.603         0.452
+                     heston    15     0.484   0.593     0.659         1.423
+                     merton    15     1.509   1.692     1.674         1.680
+          2014-19    bates     15     0.296   0.368     0.429         0.365
+                     heston    15     0.472   0.635     0.522         0.670
+                     merton    15     0.742   0.736     0.785         1.111
+          2020-Nov24 bates     15     2.112   2.301     3.868         6.302
+                     heston    15     3.357   2.802     4.211         8.180
+                     merton    15    13.138   7.513    12.118        30.543
+          Nov24-now  bates     15     0.277   0.555     0.502         0.653
+                     heston    15     0.488   0.642     0.567         0.860
+                     merton    15     0.764   0.912     0.768         1.325
+
+====================================================================================================
+DOES THE RICHER MODEL EARN ITS KEEP? paired differences (simpler - richer), vol pts
+====================================================================================================
+test simpler richer          period  n  mean_gain  median_gain  richer_wins      t  p_bonf
+hold  heston  bates discovery <2018  9     0.1442       0.0777       0.8889 2.8429  0.1303
+hold  heston  bates  holdout >=2018 12     0.5586       0.4786       1.0000 3.9655  0.0133
+hold  merton  bates discovery <2018  9     0.5663       0.3672       1.0000 4.1533  0.0192
+hold  merton  bates  holdout >=2018 12     5.4297       2.6067       1.0000 2.4872  0.1811
+next  heston  bates discovery <2018 45     0.2679       0.0966       0.8000 1.6345  0.6557
+next  heston  bates  holdout >=2018 56     0.3665       0.1173       0.7679 3.4043  0.0075
+next  merton  bates discovery <2018 45     0.5960       0.3871       0.9778 8.6393  0.0000
+next  merton  bates  holdout >=2018 56     4.6095       0.9162       1.0000 5.1549  0.0000
+
+verdict (significant gain p_bonf<0.01 in both periods, both tests):
+  bates over heston: not established
+  bates over merton: not established
+  bates_ev over bates: not established
+
+====================================================================================================
+PARAMETERS: share of days at a bound
+====================================================================================================
+  heston    v0 3%  kappa 50%  theta 4%  sigma 15%  rho 2%
+  merton    v0 4%  lam 18%  mu_j 0%  delta 8%
+  bates     v0 3%  kappa 32%  theta 25%  sigma 11%  rho 12%  lam 10%  mu_j 4%  delta 17%
+
+====================================================================================================
+BATES PARAMETERS by era (median) and day-to-day stability (median |change|)
+====================================================================================================
+                       p_v0  p_kappa  p_theta  p_sigma  p_rho  p_lam  p_mu_j  p_delta
+symbol    era                                                                        
+BANKNIFTY 2008-13     0.030    0.803    0.000    0.872 -0.638  4.073  -0.083    0.021
+          2014-19     0.048    7.888    0.058    1.006 -0.283  0.597  -0.060    0.134
+          2020-Nov24  0.435   25.000    0.000    5.342 -0.751  4.370  -0.022    0.047
+          Nov24-now   0.024   10.556    0.019    0.283 -0.915  0.216  -0.033    0.165
+NIFTY     2008-13     0.040    8.248    0.072    2.081 -0.634  1.203  -0.079    0.096
+          2014-19     0.021    8.709    0.023    0.749 -0.486  0.442  -0.060    0.133
+          2020-Nov24  0.429   25.000    0.000    5.101 -0.660  3.528  -0.071    0.110
+          Nov24-now   0.017   23.369    0.015    0.414 -0.769  0.154  -0.019    0.150
+
+median |daily change|:
+p_v0       0.0058
+p_kappa    4.0338
+p_theta    0.0050
+p_sigma    0.2867
+p_rho      0.0857
+p_lam      0.3408
+p_mu_j     0.0178
+p_delta    0.0379
+
+implied quantities (median): ATM-vol sqrt(v0) %, jump crash size e^mu-1 %, jumps/year
+                      vol_now  vol_longrun  jump_mean_pct  jumps_per_year
+symbol    era                                                            
+BANKNIFTY 2008-13       17.38         1.98          -7.98            4.07
+          2014-19       22.00        24.06          -5.81            0.60
+          2020-Nov24    65.93         1.00          -2.13            4.37
+          Nov24-now     15.43        13.85          -3.23            0.22
+NIFTY     2008-13       20.05        26.84          -7.56            1.20
+          2014-19       14.56        15.31          -5.79            0.44
+          2020-Nov24    65.52         1.00          -6.88            3.53
+          Nov24-now     12.89        12.31          -1.90            0.15
+
+====================================================================================================
+SYSTEMATIC MISFIT: mean Bates IV error (model - market, vol pts) by moneyness x maturity
+====================================================================================================
+T_b             (0, 7]  (7, 14]  (14, 35]  (35, 100]
+k_b                                                 
+(-1.0, -0.1]     -7.29     0.20      0.17      -0.03
+(-0.1, -0.05]    -4.24     0.13      0.18      -0.08
+(-0.05, -0.02]   -1.13     0.14      0.14      -0.07
+(-0.02, 0.0]     -0.34     0.34     -0.02      -0.04
+(0.0, 0.02]      -0.79     0.23     -0.03       0.00
+(0.02, 0.05]     -0.44     0.11     -0.11      -0.02
+(0.05, 0.1]      -0.67     0.69     -0.01       0.03
+(0.1, 1.0]       -7.09    -1.17     -0.41       0.22
+
+====================================================================================================
+SCHEDULED EVENTS: implied event move (psi) on the sessions before, vs realised move
+====================================================================================================
+  no identified event days
+
+====================================================================================================
+GATES
+====================================================================================================
+[PASS] C0 pricer mode: max |diff|/vega 6.6e-11 vol pt
+[FAIL] C1 recovery: fit at noise level on 100%, true smile reproduced (<= 0.3 vol pt) on 62% of 8 chains
+[PASS] C2 coverage: all three fitted on 100.00% of 113 sessions; Bates converged on 98.23%
+[PASS] C3 nesting: Bates <= both sub-models on 100.00%
+[PASS] C4 IV coverage: 0.000% of model prices without IV

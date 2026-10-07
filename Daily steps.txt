@@ -1,0 +1,18 @@
+What to do today
+Same steps as always:
+
+02_option_chain_scraper.ipynb → Run All
+python scripts/scrape_participant_oi.py
+04_data_processing.ipynb → Run All
+python scripts/fetch_underlying.py            (updates NIFTY/BANKNIFTY daily OHLC for realized vol; needs internet)
+06_vol_surface.ipynb → Run All   (Layers 0–5: IV, SVI smile, vol signals, VRP; uses the chains 02 already downloaded — no extra scraping)
+python scripts/live_daily.py     (paper engine + Bates view; uses 02's chains and fetch_underlying's close; ~1 min)
+07_dashboard.ipynb → Run All     (read-only: consolidates vols, PCR, max-pain, OI walls, VRP, participant OI, Bates view, paper ledger into one numbers view — run this last)
+
+Dates are automatic: every step labels data with the latest finished NSE session (IST clock + NSE holiday list),
+not the computer's date. On a weekend/holiday, 02 says "nothing to do" and scrapes nothing. During market hours
+(09:00-15:30 IST) 02 refuses to run. Best time: after 21:00 IST (~11:30 AM New York) when OI is final.
+To reprocess an older session in 04/06, set SESSION_OVERRIDE = "YYYY-MM-DD" in their first cell.
+
+Paper trading: never skip a monthly expiry (settlement) day - that is the day the paper engine opens the next
+month's position. Next ones: 27-Oct-2026, then the November monthly (23-Nov-2026 as currently listed).

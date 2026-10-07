@@ -1,0 +1,67 @@
+options in test: 168,127; with a next-session traded mark before settlement: 99.0%
+====================================================================================================
+RICH/CHEAP: Bates rankings vs naive IV-minus-RV, within side x delta-bucket cells
+====================================================================================================
+cross-sections: 4503 (discovery 989, holdout 3514); options per cross-section median 33
+
+Stand-alone rank IC (hedged buyer return): + = signal's 'cheap' options earned more
+  ic_N    discovery +0.2855 (t +13.96, p 0.000, 102 mo) | holdout +0.2314 (t +25.99, p 0.000, 105 mo)
+  ic_S_Q  discovery +0.1738 (t +11.39, p 0.000, 102 mo) | holdout +0.0683 (t +8.42, p 0.000, 105 mo)
+  ic_S_P  discovery +0.2309 (t +10.23, p 0.000, 102 mo) | holdout +0.2007 (t +13.73, p 0.000, 105 mo)
+
+Partial rank slope beyond the naive signal (primary; b_B > 0 = Bates adds information)
+  R1 S_P: Bates b  discovery +0.1601 (t +4.48, p 0.000, 102 mo) | holdout +0.1739 (t +7.89, p 0.000, 105 mo)
+         naive b  discovery +0.2691 (t +6.11, p 0.000, 102 mo) | holdout +0.1632 (t +7.45, p 0.000, 105 mo)
+  R2 S_Q: Bates b  discovery +0.0580 (t +6.36, p 0.000, 102 mo) | holdout +0.0194 (t +2.96, p 0.002, 105 mo)
+         naive b  discovery +0.3247 (t +9.29, p 0.000, 102 mo) | holdout +0.3010 (t +22.46, p 0.000, 105 mo)
+
+Tradable long-short (residual Bates signal, top vs bottom third), Rs per Rs100 premium per leg
+  S_P ls_gross  discovery +3.7068 (t +1.71, p 0.044, 102 mo) | holdout +3.7275 (t +2.98, p 0.001, 105 mo)
+  S_P ls_net    discovery -28.3530 (t -11.23, p 1.000, 102 mo) | holdout -23.7831 (t -16.12, p 1.000, 105 mo)
+  S_P ls_stress discovery -43.9644 (t -17.07, p 1.000, 102 mo) | holdout -32.0471 (t -19.18, p 1.000, 105 mo)
+  S_Q ls_gross  discovery +3.0105 (t +1.15, p 0.125, 102 mo) | holdout +4.0110 (t +2.84, p 0.002, 105 mo)
+  S_Q ls_net    discovery -29.8365 (t -10.84, p 1.000, 102 mo) | holdout -24.0164 (t -13.90, p 1.000, 105 mo)
+  S_Q ls_stress discovery -46.0524 (t -16.27, p 1.000, 102 mo) | holdout -32.5751 (t -16.28, p 1.000, 105 mo)
+
+VALIDITY: one-session skip (signal at t, bought at t+1's traded mark)
+  cross-sections with >= 12 skip outcomes: 4476
+  ic_N_s    discovery +0.1672 (t +9.77, p 0.000, 102 mo) | holdout +0.1565 (t +16.29, p 0.000, 105 mo)
+  ic_S_Q_s  discovery -0.0002 (t -0.02, p 0.506, 102 mo) | holdout +0.0122 (t +2.64, p 0.004, 105 mo)
+  ic_S_P_s  discovery +0.1270 (t +4.92, p 0.000, 102 mo) | holdout +0.1595 (t +11.29, p 0.000, 105 mo)
+  b_S_P_s   discovery +0.1000 (t +2.52, p 0.006, 102 mo) | holdout +0.1943 (t +8.73, p 0.000, 105 mo)
+  bN_S_P_s  discovery +0.1643 (t +3.49, p 0.000, 102 mo) | holdout +0.0780 (t +3.36, p 0.000, 105 mo)
+  b_S_Q_s   discovery -0.0150 (t -1.42, p 0.923, 102 mo) | holdout +0.0018 (t +0.40, p 0.346, 105 mo)
+  bN_S_Q_s  discovery +0.2706 (t +7.94, p 0.000, 102 mo) | holdout +0.2561 (t +18.31, p 0.000, 105 mo)
+  S_P gross long-short, skip basis: discovery +0.3001 (t +0.13, p 0.450, 102 mo) | holdout +3.8301 (t +3.00, p 0.001, 105 mo)
+  S_Q gross long-short, skip basis: discovery +2.8013 (t +0.92, p 0.178, 102 mo) | holdout +2.6778 (t +1.64, p 0.051, 105 mo)
+
+EXPLORATORY (post hoc): hedged SELLER net return per Rs100 by residual Bates third
+  S_P discovery: sell rich third +20.17 | all +17.20 | cheap third +16.76; rich - cheap +3.4088 (t +1.54, p 0.061, 102 mo)
+  S_P holdout: sell rich third +34.45 | all +30.36 | cheap third +31.23; rich - cheap +3.2152 (t +2.55, p 0.005, 105 mo)
+  S_Q discovery: sell rich third +22.20 | all +17.20 | cheap third +18.29; rich - cheap +3.9150 (t +1.48, p 0.069, 102 mo)
+  S_Q holdout: sell rich third +36.32 | all +30.36 | cheap third +32.20; rich - cheap +4.1148 (t +2.93, p 0.002, 105 mo)
+
+Unhedged outcome (descriptive)
+  ic_N_u    discovery +0.1143 (t +6.97, p 0.000, 101 mo) | holdout +0.1200 (t +14.19, p 0.000, 105 mo)
+  ic_S_Q_u  discovery +0.0543 (t +4.92, p 0.000, 101 mo) | holdout +0.0574 (t +10.58, p 0.000, 105 mo)
+  ic_S_P_u  discovery +0.1365 (t +5.10, p 0.000, 101 mo) | holdout +0.1767 (t +20.95, p 0.000, 105 mo)
+  b_S_P_u   discovery +0.1238 (t +3.88, p 0.000, 101 mo) | holdout +0.1688 (t +12.81, p 0.000, 105 mo)
+  b_S_Q_u   discovery +0.0036 (t +0.62, p 0.266, 101 mo) | holdout +0.0236 (t +6.02, p 0.000, 105 mo)
+
+By era (partial Bates slope, hedged)
+  2008-2012: S_P +0.1192 (t +1.59, p 0.056, 42 mo) | S_Q +0.0631 (t +3.63, p 0.000, 42 mo) | naive IC +0.3342 (t +8.00, p 0.000, 42 mo)
+  2013-2017: S_P +0.1887 (t +6.41, p 0.000, 60 mo) | S_Q +0.0544 (t +5.67, p 0.000, 60 mo) | naive IC +0.2514 (t +16.53, p 0.000, 60 mo)
+  2018-2021: S_P +0.2179 (t +6.52, p 0.000, 48 mo) | S_Q +0.0318 (t +4.68, p 0.000, 48 mo) | naive IC +0.2357 (t +19.98, p 0.000, 48 mo)
+  2022-now: S_P +0.1368 (t +5.19, p 0.000, 57 mo) | S_Q +0.0090 (t +0.90, p 0.185, 57 mo) | naive IC +0.2278 (t +17.57, p 0.000, 57 mo)
+
+DECISION (holdout, Holm 5% over R1/R2)
+  R1 S_P: holdout p 0.000 vs Holm 0.025 -> PASS; discovery sign +; holdout LS net -23.78 -> Bates role in selection: no
+  R2 S_Q: holdout p 0.002 vs Holm 0.050 -> PASS; discovery sign +; holdout LS net -24.02 -> Bates role in selection: no
+
+====================================================================================================
+EXPLORATORY hedge benchmark: sticky-moneyness smile delta vs Black-76 smile-IV delta
+====================================================================================================
+  discovery: daily hedged P&L sd (gross, book units) BS 0.00670 | Bates MV 0.00698 | sticky-moneyness 0.00751; mean BS +0.0441/yr, smile +0.0807/yr
+    squared-P&L difference smile - BS (monthly, HAC): +0.0002 (t +3.94, p 0.000, 120 mo)  (+ = smile delta worse)
+  holdout: daily hedged P&L sd (gross, book units) BS 0.00691 | Bates MV 0.00727 | sticky-moneyness 0.00767; mean BS +0.0903/yr, smile +0.1245/yr
+    squared-P&L difference smile - BS (monthly, HAC): +0.0002 (t +2.65, p 0.004, 105 mo)  (+ = smile delta worse)

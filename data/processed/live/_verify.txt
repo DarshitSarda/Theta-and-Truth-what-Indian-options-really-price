@@ -1,0 +1,58 @@
+====================================================================================================
+NIFTY: live sessions 58 (2026-07-13 .. 2026-10-06), overlap with bhavcopy 57
+====================================================================================================
+expiry relabels detected: none
+forward source per file: {'parity': 206, 'expiry_day': 13}
+files scraped before 21:00 IST on their session: 0 of 12
+
+spot: snapshot vs NSE close, bp: p50 0 p90 0 p99 16.8 (n 57); worst 2026-07-22 38.1bp
+sessions whose snapshot is not at the close (> 5.0bp from NSE close): 2026-07-22 -38bp
+spot: Yahoo close vs NSE close, bp: p50 0.000167 p90 0.00033 p99 0.000347 (n 57)
+
+forward: live vs panel, bp (|diff|): p50 2.87 p90 7.94 p99 13.2 (n 195); mean signed -0.22bp
+   live expiry_day   : p50 0 p90 0 p99 0 (n 12)
+   live parity       : p50 3.07 p90 8.12 p99 13.3 (n 183)
+   worst: 2026-09-09 2026-09-29 dte 20 -13.2bp (parity/parity); 2026-09-09 2026-09-15 dte 6 -13.7bp (parity/parity); 2026-09-03 2026-09-08 dte 5 -14.9bp (parity/parity)
+
+traded flags: bhavcopy-traded contracts also live-traded 92.3%; live-traded also bhavcopy-traded 100.0%
+price: live mid vs bhavcopy close, contracts traded in both: 25,334
+   dte 0-1 (expiry / day before): |mid/close-1| p50 0.0526 p90 0.236 p99 0.507 (n 2616)
+   dte >= 2, snapshot at the close:
+   |delta| 0.30-0.50   : |mid/close-1| p50 0.0186 p90 0.0596 p99 0.126 (n 1994); |mid-close| in half-spreads p50 2.67 p90 12.5 p99 58.1 (n 1994); |LTP/close-1| p50 0.0176
+   |delta| 0.10-0.30   : |mid/close-1| p50 0.0253 p90 0.0862 p99 0.174 (n 2947); |mid-close| in half-spreads p50 1.62 p90 9.53 p99 38.6 (n 2947); |LTP/close-1| p50 0.0236
+   |delta| 0.02-0.10   : |mid/close-1| p50 0.0386 p90 0.116 p99 0.209 (n 4102); |mid-close| in half-spreads p50 1 p90 6 p99 22.3 (n 4102); |LTP/close-1| p50 0.0368
+   ITM (|delta| > 0.5) : |mid/close-1| p50 0.013 p90 0.0506 p99 0.128 (n 6036); |mid-close| in half-spreads p50 1.31 p90 7.38 p99 32.4 (n 6036); |LTP/close-1| p50 0.00834
+   mean signed mid/close-1 (OTM, |delta| 0.02-0.5): -0.0073
+IV: live - panel, vol points, OTM |delta| 0.02-0.5, dte >= 2: |diff| p50 0.0866 p90 0.274 p99 0.627 (n 9008); mean signed -0.028
+   near the money (|delta| 0.3-0.5): |diff| p50 0.0723 p90 0.205 p99 0.42 (n 1959); mean signed -0.024
+lot size (bhavcopy) on the last overlap day: 65
+
+====================================================================================================
+BANKNIFTY: live sessions 58 (2026-07-13 .. 2026-10-06), overlap with bhavcopy 57
+====================================================================================================
+expiry relabels detected: none
+forward source per file: {'parity': 113, 'expiry_day': 3}
+files scraped before 21:00 IST on their session: 0 of 4
+
+spot: snapshot vs NSE close, bp: p50 0 p90 0 p99 25.4 (n 57); worst 2026-07-22 57.7bp
+sessions whose snapshot is not at the close (> 5.0bp from NSE close): 2026-07-22 -58bp
+spot: Yahoo close vs NSE close, bp: p50 0.000137 p90 0.000273 p99 0.000286 (n 57)
+
+forward: live vs panel, bp (|diff|): p50 2.48 p90 8.87 p99 12.5 (n 114); mean signed -1.12bp
+   live expiry_day   : p50 0 p90 0 p99 0 (n 3)
+   live parity       : p50 2.55 p90 9.03 p99 12.5 (n 111)
+   worst: 2026-09-22 2026-09-29 dte 7 +12.4bp (parity/parity); 2026-09-15 2026-09-29 dte 14 -12.5bp (parity/parity); 2026-09-15 2026-10-27 dte 42 -14.5bp (parity/parity)
+
+traded flags: bhavcopy-traded contracts also live-traded 90.8%; live-traded also bhavcopy-traded 100.0%
+price: live mid vs bhavcopy close, contracts traded in both: 14,564
+   dte 0-1 (expiry / day before): |mid/close-1| p50 0.0255 p90 0.139 p99 0.39 (n 668)
+   dte >= 2, snapshot at the close:
+   |delta| 0.30-0.50   : |mid/close-1| p50 0.0127 p90 0.0477 p99 0.113 (n 1951); |mid-close| in half-spreads p50 1.31 p90 6.01 p99 18.7 (n 1951); |LTP/close-1| p50 0.0113
+   |delta| 0.10-0.30   : |mid/close-1| p50 0.018 p90 0.0609 p99 0.139 (n 2240); |mid-close| in half-spreads p50 1.42 p90 6.14 p99 22.9 (n 2240); |LTP/close-1| p50 0.0169
+   |delta| 0.02-0.10   : |mid/close-1| p50 0.0263 p90 0.0866 p99 0.162 (n 2189); |mid-close| in half-spreads p50 0.771 p90 3.42 p99 13 (n 2189); |LTP/close-1| p50 0.0284
+   ITM (|delta| > 0.5) : |mid/close-1| p50 0.00919 p90 0.0408 p99 0.133 (n 3963); |mid-close| in half-spreads p50 0.916 p90 4.07 p99 15.3 (n 3963); |LTP/close-1| p50 0.00547
+   mean signed mid/close-1 (OTM, |delta| 0.02-0.5): +0.0031
+IV: live - panel, vol points, OTM |delta| 0.02-0.5, dte >= 2: |diff| p50 0.066 p90 0.212 p99 0.79 (n 6328); mean signed +0.006
+   near the money (|delta| 0.3-0.5): |diff| p50 0.0654 p90 0.215 p99 1.06 (n 1899); mean signed -0.012
+lot size (bhavcopy) on the last overlap day: 30
+

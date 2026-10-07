@@ -1,0 +1,8 @@
+[PASS] L1 target: matches brute-force sums
+[PASS] L2 garch_h: matches the expected-variance recursion
+[PASS] L3 past_stats: matches brute force (rows settled by the origin)
+[PASS] L4 beats biased noisy implied: QLIKE gain +0.0500 t +5.34; calibrated implied / realised (2nd half) 1.004 (raw implied 1.412)
+[PASS] L5 no false win vs a perfect forecast: gain -0.00386 t -1.62; mean weights truth/garch/har 0.58/0.35/0.08
+[PASS] L6 no look-ahead: max relative difference after truncation 0.0e+00
+[PASS] L7 market +/-1 sigma probability: 0.6827
+ALL PASS

@@ -1,0 +1,10 @@
+[PASS] S1 no edge: mean -0.0119 +/- 0.0192 (premium 4.606)
+[PASS] S2 premium capture: mean +0.9343 +/- 0.0161 vs theory +0.9210
+[PASS] S3 whole lots: lots sold {3.0}; per-unit mean -0.0105, sd 1.3122 vs exact sd 1.2149
+[PASS] S4 bands trade less: round 12.5, band1 7.8, band2 4.2, none 2.0
+[PASS] S5 synthetic == futures (zero cost): max |difference| 2.40e-14
+[PASS] S6 cost formulas: option sale 132.86 = 132.86; futures buy 162.30 = 162.30
+[PASS] S7 entry retry: 3 missing -> skipped; 2 missing -> filled on session 3
+[PASS] S8 expiry cost: 2026: 4.88 (exercise STT on intrinsic); 2012: 87.59 = min(exercise on index 406.25, sell 87.59)
+[PASS] S9 no look-ahead: scrambling all data after day k changes nothing up to day k (positions to k+1): max diff 0.0e+00
+ALL PASS

@@ -1,0 +1,23 @@
+data/raw/
+data/processed/**
+!data/processed/**/
+!data/processed/**/_*.txt
+!data/processed/**/_rules_frozen_before_run.py
+!data/processed/**/_selftest_frozen.py
+!data/processed/analysis/*.txt
+data/processed/_backup_before_stt2026_fix/**
+logs/*.log
+__pycache__/
+*.pyc
+.env
+venv/
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# working notes and scratch tests (kept locally, not published)
+AGENT_HANDOFF.md
+/_api_test.py
+/_browser_test.py
+/_browser_test2.py
+data/*.png

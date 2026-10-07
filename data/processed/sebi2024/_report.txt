@@ -1,0 +1,52 @@
+SEBI Nov-2024 reform: BANKNIFTY (lost weeklies) minus NIFTY (kept them), monthly contracts only
+pre = settlements 2022-12..2024-09, post = 2024-12..2026-09; rules in the script header
+
+PRIMARY
+  P1 hedged buyer return, 21 sessions, |delta| .30-.50 (Rs/Rs100)
+     gap pre +6.629  post -1.539  change -8.168 (se 7.608)  NW p 0.2891  Holm 1.0000  placebo p 0.34 (144 fake dates, |placebo| 90th pct 12.181)
+     change by post half: Dec24-Jun25 -16.486, Jul25-Sep26 -4.286  -> no reliable change
+       BANKNIFTY own level pre -8.615 post -19.751 (-11.136)
+       NIFTY     own level pre -15.244 post -18.212 (-2.968)
+  P2 hedged buyer return, 3 sessions, |delta| .15-.50 (Rs/Rs100)
+     gap pre -2.314  post +8.044  change +10.358 (se 15.331)  NW p 0.5030  Holm 1.0000  placebo p 0.78 (144 fake dates, |placebo| 90th pct 57.317)
+     change by post half: Dec24-Jun25 +13.879, Jul25-Sep26 +8.715  -> no reliable change
+       BANKNIFTY own level pre -22.519 post -29.916 (-7.397)
+       NIFTY     own level pre -20.205 post -37.960 (-17.756)
+  P3 skew: 10d put IV - 10d call IV, 21 sessions (vol pts)
+     gap pre -0.377  post +0.008  change +0.384 (se 0.396)  NW p 0.3375  Holm 1.0000  placebo p 0.47 (104 fake dates, |placebo| 90th pct 0.822)
+     change by post half: Dec24-Jun25 +0.285, Jul25-Sep26 +0.434  -> no reliable change
+       BANKNIFTY own level pre +3.537 post +3.735 (+0.198)
+       NIFTY     own level pre +4.035 post +3.794 (-0.241)
+  P4 ln(implied var / realised var), 21 sessions
+     gap pre -0.142  post -0.064  change +0.078 (se 0.096)  NW p 0.4198  Holm 1.0000  placebo p 0.64 (143 fake dates, |placebo| 90th pct 0.195)
+     change by post half: Dec24-Jun25 +0.252, Jul25-Sep26 -0.003  -> no reliable change
+       BANKNIFTY own level pre +0.141 post +0.205 (+0.064)
+       NIFTY     own level pre +0.283 post +0.269 (-0.014)
+
+SECONDARY (descriptive; not part of the verdict)
+
+FIRST STAGE (did the reform change where BANKNIFTY options trade?) monthly premium turnover
+  pre  BANKNIFTY/NIFTY premium turnover x1.50; share traded <= 5 sessions from expiry: BANKNIFTY 95%, NIFTY 89%
+  post BANKNIFTY/NIFTY premium turnover x0.13; share traded <= 5 sessions from expiry: BANKNIFTY 37%, NIFTY 91%
+
+BATES (model-based; BANKNIFTY's fit inputs lost the weeklies, so read with care)
+  ln(Q var / P var), monthly 15-25 sessions out  gap pre -0.211 post -0.168 change +0.043 (NW p 0.416, 21/22 months)
+  jump share of Q variance                       gap pre -0.011 post -0.002 change +0.009 (NW p 0.634, 21/22 months)
+
+Other horizons / wings: hedged buyer return gap change (Rs/Rs100), NW p
+  h  2 ATM-ish CE: pre   +0.9 post   -3.9 change   -4.9 (p 0.759)
+  h  2 ATM-ish PE: pre   +1.9 post   +4.7 change   +2.9 (p 0.856)
+  h  2 wings   CE: pre  +58.3 post   +7.1 change  -51.1 (p 0.372)
+  h  2 wings   PE: pre  +27.7 post  +34.0 change   +6.3 (p 0.893)
+  h  5 ATM-ish CE: pre   -0.0 post   +2.8 change   +2.8 (p 0.856)
+  h  5 ATM-ish PE: pre   -0.8 post   +2.9 change   +3.7 (p 0.813)
+  h  5 wings   CE: pre   -8.7 post  -11.7 change   -3.0 (p 0.911)
+  h  5 wings   PE: pre  +15.2 post  +37.3 change  +22.1 (p 0.298)
+  h 10 ATM-ish CE: pre   +7.5 post   -6.7 change  -14.2 (p 0.030)
+  h 10 ATM-ish PE: pre  +11.0 post   -0.5 change  -11.5 (p 0.077)
+  h 10 wings   CE: pre  -29.9 post  +20.0 change  +49.9 (p 0.163)
+  h 10 wings   PE: pre   +3.5 post  +14.8 change  +11.2 (p 0.545)
+  h 42 ATM-ish CE: pre   +3.6 post   +0.4 change   -3.2 (p 0.647)
+  h 42 ATM-ish PE: pre   +6.8 post   +4.8 change   -1.9 (p 0.803)
+  h 42 wings   CE: pre   +0.2 post  -31.8 change  -32.0 (p 0.105)
+  h 42 wings   PE: pre   -0.2 post  +40.5 change  +40.7 (p 0.258)

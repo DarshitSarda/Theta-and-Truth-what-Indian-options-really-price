@@ -1,0 +1,165 @@
+dataset: 168,127 options, 2009-05-14..2026-09-25 (7s); skip outcome available 99%
+walk-forward training:
+  trained 2013: rolling n=4,638, expanding n=4,638
+  trained 2014: rolling n=6,879, expanding n=6,879
+  trained 2015: rolling n=9,017, expanding n=9,616
+  trained 2016: rolling n=11,732, expanding n=13,011
+  trained 2017: rolling n=14,210, expanding n=17,127
+  trained 2018: rolling n=17,477, expanding n=22,115
+  trained 2019: rolling n=21,845, expanding n=28,724
+  trained 2020: rolling n=29,400, expanding n=39,016
+  trained 2021: rolling n=42,108, expanding n=55,119
+  trained 2022: rolling n=58,038, expanding n=75,165
+  trained 2023: rolling n=75,416, expanding n=97,531
+  trained 2024: rolling n=86,797, expanding n=115,521
+  trained 2025: rolling n=99,125, expanding n=138,141
+  trained 2026: rolling n=99,247, expanding n=154,366
+PRIMARY universe: 16,696 options; SECONDARY: 38,851
+
+====================================================================================================
+PRIMARY (monthly, 21 sessions) - rolling 5y window
+====================================================================================================
+months 147 (2013-01..2026-08)
+  M0 sell all   net  +4.51%/yr  Sharpe +0.70  maxDD  14.9%  worst month  -7.2% | stress  +3.66%/yr  Sharpe +0.57  maxDD  15.7%  worst month  -7.3%
+  M1 ATM pair   net  +5.59%/yr  Sharpe +0.55  maxDD  22.6%  worst month -13.1% | stress  +3.89%/yr  Sharpe +0.39  maxDD  24.0%  worst month -13.3%
+  M2 Bates S_P  net  +3.87%/yr  Sharpe +0.64  maxDD  14.4%  worst month -11.2% | stress  +3.20%/yr  Sharpe +0.53  maxDD  14.8%  worst month -11.3%
+  M3 naive S_N  net  +3.38%/yr  Sharpe +0.65  maxDD   8.7%  worst month  -6.6% | stress  +2.84%/yr  Sharpe +0.55  maxDD   9.2%  worst month  -6.7%
+  M4 ridge      net  +4.54%/yr  Sharpe +0.49  maxDD  20.2%  worst month -12.2% | stress  +3.31%/yr  Sharpe +0.36  maxDD  21.4%  worst month -12.3%
+  M5 boosting   net  +4.74%/yr  Sharpe +0.61  maxDD  13.7%  worst month  -9.2% | stress  +3.84%/yr  Sharpe +0.50  maxDD  14.7%  worst month  -9.2%
+  difference vs M0 (sell all), per month, book units:
+    M1 ATM pair    +1.07%/yr (t +0.79, p 0.2144) | stress  +0.24%/yr | skip basis  +1.27%/yr (115 mo) | halves -1.41% / +3.59%
+    M2 Bates S_P   -0.64%/yr (t -0.67, p 0.7475) | stress  -0.46%/yr | skip basis  -0.54%/yr (115 mo) | halves +0.80% / -2.11%
+    M3 naive S_N   -1.14%/yr (t -1.11, p 0.8675) | stress  -0.82%/yr | skip basis  -2.79%/yr (115 mo) | halves -0.03% / -2.26%
+    M4 ridge       +0.03%/yr (t +0.03, p 0.4895) | stress  -0.35%/yr | skip basis  -0.96%/yr (115 mo) | halves -0.97% / +1.04%
+    M5 boosting    +0.23%/yr (t +0.39, p 0.3484) | stress  +0.19%/yr | skip basis  +0.29%/yr (115 mo) | halves +0.91% / -0.45%
+  difference vs M1 (ATM pair):
+    M2 Bates S_P   -1.71%/yr (t -0.85, p 0.8030)
+    M3 naive S_N   -2.21%/yr (t -1.05, p 0.8529)
+    M4 ridge       -1.05%/yr (t -1.08, p 0.8603)
+    M5 boosting    -0.84%/yr (t -0.59, p 0.7229)
+  VERDICT (Holm over M2-M5; + stress, both halves, skip basis):
+    M2 Bates S_P  Holm p 1.0000 -> no
+    M3 naive S_N  Holm p 1.0000 -> no
+    M4 ridge      Holm p 1.0000 -> no
+    M5 boosting   Holm p 1.0000 -> no
+
+====================================================================================================
+SECONDARY (every expiry, 5 sessions) - rolling 5y window
+====================================================================================================
+months 165 (2013-01..2026-09)
+  M0 sell all   net  +1.97%/yr  Sharpe +0.30  maxDD  20.2%  worst month -12.4% | stress  +1.21%/yr  Sharpe +0.19  maxDD  21.5%  worst month -12.8%
+  M1 ATM pair   net  -0.87%/yr  Sharpe -0.08  maxDD  42.1%  worst month -12.8% | stress  -2.55%/yr  Sharpe -0.25  maxDD  54.2%  worst month -13.5%
+  M2 Bates S_P  net  +2.41%/yr  Sharpe +0.44  maxDD  21.8%  worst month -12.8% | stress  +1.88%/yr  Sharpe +0.34  maxDD  23.4%  worst month -13.0%
+  M3 naive S_N  net  +2.31%/yr  Sharpe +0.52  maxDD  14.3%  worst month -12.3% | stress  +1.89%/yr  Sharpe +0.42  maxDD  15.0%  worst month -12.7%
+  M4 ridge      net  +1.77%/yr  Sharpe +0.17  maxDD  28.1%  worst month -15.9% | stress  +0.66%/yr  Sharpe +0.06  maxDD  30.4%  worst month -16.2%
+  M5 boosting   net  +1.47%/yr  Sharpe +0.16  maxDD  24.0%  worst month -17.6% | stress  +0.63%/yr  Sharpe +0.07  maxDD  25.3%  worst month -18.0%
+  difference vs M0 (sell all), per month, book units:
+    M1 ATM pair    -2.84%/yr (t -2.15, p 0.9843) | stress  -3.76%/yr | skip basis  -2.43%/yr (164 mo) | halves -3.92% / -1.72%
+    M2 Bates S_P   +0.43%/yr (t +0.47, p 0.3193) | stress  +0.67%/yr | skip basis  +0.34%/yr (164 mo) | halves +1.02% / -0.17%
+    M3 naive S_N   +0.34%/yr (t +0.35, p 0.3614) | stress  +0.68%/yr | skip basis  +0.31%/yr (164 mo) | halves +1.00% / -0.35%
+    M4 ridge       -0.20%/yr (t -0.21, p 0.5821) | stress  -0.55%/yr | skip basis  -0.31%/yr (164 mo) | halves -0.39% / -0.01%
+    M5 boosting    -0.50%/yr (t -0.56, p 0.7111) | stress  -0.58%/yr | skip basis  -0.29%/yr (164 mo) | halves +0.36% / -1.39%
+  difference vs M1 (ATM pair):
+    M2 Bates S_P   +3.27%/yr (t +1.63, p 0.0517)
+    M3 naive S_N   +3.18%/yr (t +1.51, p 0.0658)
+    M4 ridge       +2.64%/yr (t +2.72, p 0.0032)
+    M5 boosting    +2.34%/yr (t +1.67, p 0.0479)
+  VERDICT (Holm over M2-M5; + stress, both halves, skip basis):
+    M2 Bates S_P  Holm p 1.0000 -> no
+    M3 naive S_N  Holm p 1.0000 -> no
+    M4 ridge      Holm p 1.0000 -> no
+    M5 boosting   Holm p 1.0000 -> no
+
+====================================================================================================
+PRIMARY (monthly, 21 sessions) - expanding window
+====================================================================================================
+months 147 (2013-01..2026-08)
+  M0 sell all   net  +4.51%/yr  Sharpe +0.70  maxDD  14.9%  worst month  -7.2% | stress  +3.66%/yr  Sharpe +0.57  maxDD  15.7%  worst month  -7.3%
+  M1 ATM pair   net  +5.59%/yr  Sharpe +0.55  maxDD  22.6%  worst month -13.1% | stress  +3.89%/yr  Sharpe +0.39  maxDD  24.0%  worst month -13.3%
+  M2 Bates S_P  net  +3.87%/yr  Sharpe +0.64  maxDD  14.4%  worst month -11.2% | stress  +3.20%/yr  Sharpe +0.53  maxDD  14.8%  worst month -11.3%
+  M3 naive S_N  net  +3.38%/yr  Sharpe +0.65  maxDD   8.7%  worst month  -6.6% | stress  +2.84%/yr  Sharpe +0.55  maxDD   9.2%  worst month  -6.7%
+  M4 ridge      net  +4.88%/yr  Sharpe +0.51  maxDD  20.2%  worst month -12.7% | stress  +3.59%/yr  Sharpe +0.38  maxDD  21.4%  worst month -12.8%
+  M5 boosting   net  +4.63%/yr  Sharpe +0.61  maxDD  13.7%  worst month  -8.3% | stress  +3.73%/yr  Sharpe +0.49  maxDD  14.7%  worst month  -8.3%
+  difference vs M0 (sell all), per month, book units:
+    M1 ATM pair    +1.07%/yr (t +0.79, p 0.2144) | stress  +0.24%/yr | skip basis  +1.27%/yr (115 mo) | halves -1.41% / +3.59%
+    M2 Bates S_P   -0.64%/yr (t -0.67, p 0.7475) | stress  -0.46%/yr | skip basis  -0.54%/yr (115 mo) | halves +0.80% / -2.11%
+    M3 naive S_N   -1.14%/yr (t -1.11, p 0.8675) | stress  -0.82%/yr | skip basis  -2.79%/yr (115 mo) | halves -0.03% / -2.26%
+    M4 ridge       +0.36%/yr (t +0.36, p 0.3582) | stress  -0.07%/yr | skip basis  -0.08%/yr (115 mo) | halves -1.07% / +1.82%
+    M5 boosting    +0.11%/yr (t +0.14, p 0.4458) | stress  +0.08%/yr | skip basis  +0.22%/yr (115 mo) | halves +0.86% / -0.64%
+  difference vs M1 (ATM pair):
+    M2 Bates S_P   -1.71%/yr (t -0.85, p 0.8030)
+    M3 naive S_N   -2.21%/yr (t -1.05, p 0.8529)
+    M4 ridge       -0.71%/yr (t -0.90, p 0.8161)
+    M5 boosting    -0.96%/yr (t -0.63, p 0.7346)
+
+====================================================================================================
+SECONDARY (every expiry, 5 sessions) - expanding window
+====================================================================================================
+months 165 (2013-01..2026-09)
+  M0 sell all   net  +1.97%/yr  Sharpe +0.30  maxDD  20.2%  worst month -12.4% | stress  +1.21%/yr  Sharpe +0.19  maxDD  21.5%  worst month -12.8%
+  M1 ATM pair   net  -0.87%/yr  Sharpe -0.08  maxDD  42.1%  worst month -12.8% | stress  -2.55%/yr  Sharpe -0.25  maxDD  54.2%  worst month -13.5%
+  M2 Bates S_P  net  +2.41%/yr  Sharpe +0.44  maxDD  21.8%  worst month -12.8% | stress  +1.88%/yr  Sharpe +0.34  maxDD  23.4%  worst month -13.0%
+  M3 naive S_N  net  +2.31%/yr  Sharpe +0.52  maxDD  14.3%  worst month -12.3% | stress  +1.89%/yr  Sharpe +0.42  maxDD  15.0%  worst month -12.7%
+  M4 ridge      net  +1.34%/yr  Sharpe +0.13  maxDD  26.6%  worst month -14.8% | stress  +0.14%/yr  Sharpe +0.01  maxDD  33.3%  worst month -14.9%
+  M5 boosting   net  +2.17%/yr  Sharpe +0.25  maxDD  20.5%  worst month -17.1% | stress  +1.35%/yr  Sharpe +0.15  maxDD  21.7%  worst month -17.5%
+  difference vs M0 (sell all), per month, book units:
+    M1 ATM pair    -2.84%/yr (t -2.15, p 0.9843) | stress  -3.76%/yr | skip basis  -2.43%/yr (164 mo) | halves -3.92% / -1.72%
+    M2 Bates S_P   +0.43%/yr (t +0.47, p 0.3193) | stress  +0.67%/yr | skip basis  +0.34%/yr (164 mo) | halves +1.02% / -0.17%
+    M3 naive S_N   +0.34%/yr (t +0.35, p 0.3614) | stress  +0.68%/yr | skip basis  +0.31%/yr (164 mo) | halves +1.00% / -0.35%
+    M4 ridge       -0.64%/yr (t -0.68, p 0.7507) | stress  -1.07%/yr | skip basis  -0.64%/yr (164 mo) | halves -1.12% / -0.13%
+    M5 boosting    +0.19%/yr (t +0.23, p 0.4091) | stress  +0.14%/yr | skip basis  +0.24%/yr (164 mo) | halves +0.10% / +0.29%
+  difference vs M1 (ATM pair):
+    M2 Bates S_P   +3.27%/yr (t +1.63, p 0.0517)
+    M3 naive S_N   +3.18%/yr (t +1.51, p 0.0658)
+    M4 ridge       +2.20%/yr (t +2.61, p 0.0046)
+    M5 boosting    +3.03%/yr (t +2.09, p 0.0183)
+
+Ridge coefficients (standardised; + = higher seller return), rolling window, by year:
+      is_put  abs_delta    tdte       z      iv  iv_rel     S_P     S_N     vrp   event   ret22  is_bank
+year                                                                                                    
+2013 -0.0023     0.0087  0.0158 -0.0014  0.0164 -0.0044  0.0039  0.0004  0.0031 -0.0014  0.0048  -0.0099
+2014  0.0008     0.0059  0.0079  0.0036  0.0141 -0.0018  0.0043 -0.0032  0.0054 -0.0037  0.0159  -0.0130
+2015 -0.0015     0.0072  0.0080  0.0023  0.0162 -0.0037 -0.0052 -0.0018  0.0050  0.0056  0.0153  -0.0120
+2016 -0.0018     0.0045  0.0052  0.0023  0.0173 -0.0047 -0.0034 -0.0003  0.0041  0.0039  0.0127  -0.0093
+2017 -0.0011     0.0017  0.0059  0.0012  0.0161 -0.0056 -0.0023  0.0008  0.0031  0.0034  0.0090  -0.0075
+2018 -0.0018     0.0005  0.0054  0.0010  0.0105 -0.0041 -0.0020 -0.0004  0.0036  0.0027  0.0090  -0.0041
+2019 -0.0008     0.0007  0.0069 -0.0001  0.0135 -0.0064 -0.0019  0.0025  0.0021  0.0027  0.0036  -0.0030
+2020 -0.0019    -0.0002  0.0050 -0.0017  0.0124 -0.0070  0.0002  0.0016  0.0029  0.0025  0.0054  -0.0030
+2021 -0.0022     0.0033  0.0084  0.0022  0.0319 -0.0025  0.0059  0.0002  0.0010  0.0027  0.0167  -0.0027
+2022 -0.0014     0.0044  0.0096  0.0025  0.0244 -0.0023  0.0039 -0.0006  0.0019 -0.0048  0.0128  -0.0020
+2023 -0.0045     0.0043  0.0090  0.0004  0.0219 -0.0031  0.0024  0.0003  0.0015 -0.0050  0.0105  -0.0011
+2024 -0.0041     0.0039  0.0088 -0.0000  0.0192 -0.0031  0.0023  0.0003  0.0015 -0.0035  0.0080  -0.0007
+2025 -0.0033     0.0020  0.0085  0.0010  0.0162 -0.0015  0.0035  0.0015 -0.0008 -0.0114  0.0058  -0.0004
+2026 -0.0021     0.0015  0.0076 -0.0010  0.0075 -0.0031 -0.0002  0.0030 -0.0014 -0.0076 -0.0018   0.0004
+
+====================================================================================================
+DIAGNOSTICS (descriptive, after the verdict)
+====================================================================================================
+1  reconciliation (book units, %/yr; sizing differs: sum of per-leg worst losses here):
+   2013..2017: picker M1 ATM pair -0.51%/yr, M0 sell all +1.73%/yr | Stage 5 engine -0.12%/yr
+   2018..2026: picker M1 ATM pair +9.02%/yr, M0 sell all +6.08%/yr | Stage 5 engine +6.19%/yr
+
+2  PRIMARY rolling: share of chosen options by side x |delta| bucket
+              M0  M2  M3  M4  M5
+cell                            
+CE 0.02-0.05   8  17   4   4   7
+CE 0.05-0.15  12  19   0  12  12
+CE 0.15-0.30  12  10   0  24  18
+CE 0.30-0.50  14   6   0  38  18
+PE 0.02-0.05  10  23  30   0  10
+PE 0.05-0.15  16  15  43   0  13
+PE 0.15-0.30  15   6  20   2  11
+PE 0.30-0.50  14   5   3  19  11
+
+3  mean seller r per unit of crash risk (x 0.25 = book return per cycle), test years 2013+; per-expiry means averaged (one expiry = one observation)
+tdte            2     3     5     10    21    42
+cell                                            
+CE 0.02-0.05  0.27  0.39  0.31  0.95  1.28  3.01
+CE 0.05-0.15  0.50  0.58  0.36  1.08  1.43  2.62
+CE 0.15-0.30  0.70  0.91  0.34  1.63  1.44  3.49
+CE 0.30-0.50  0.68  0.99  0.10  1.20  1.36  4.10
+PE 0.02-0.05  0.18  0.18  0.25  0.52  0.49  0.42
+PE 0.05-0.15  0.30  0.28  0.28  0.39  0.84  1.44
+PE 0.15-0.30  0.43  0.70  0.18  0.32  1.29  1.96
+PE 0.30-0.50  0.52  0.86  0.01  0.48  1.30  2.69
+   (units: % of the option's stress loss earned per trade)

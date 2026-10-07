@@ -1,0 +1,220 @@
+8678 sessions, 27143 fits, 2008-01-01 .. 2026-10-05
+
+====================================================================================================
+C0 one-series pricer vs validated two-sided pricer
+====================================================================================================
+[PASS] C0 pricer mode: max |diff|/vega 2.8e-11 vol pt
+
+====================================================================================================
+C1 synthetic recovery (truth = fitted Bates; noise 0.3 vol pt; cold starts)
+====================================================================================================
+   symbol       date  n  fit_rmse  dense_rms  extrap_rms
+BANKNIFTY 2009-07-06 10     0.363      0.345       1.489
+BANKNIFTY 2010-07-01 11     0.108      0.122       0.529
+BANKNIFTY 2011-06-22 12     0.214      0.127       0.231
+BANKNIFTY 2012-05-31 15     0.280      0.232       0.224
+BANKNIFTY 2013-06-03 15     0.255      0.115       0.124
+BANKNIFTY 2014-01-31 19     0.329      0.108       0.111
+BANKNIFTY 2015-08-06 25     0.200      0.130       0.386
+BANKNIFTY 2016-04-27 15     0.356      0.221       0.667
+BANKNIFTY 2017-08-09 37     0.238      0.149       0.334
+BANKNIFTY 2018-12-13 40     0.253      0.140       0.636
+BANKNIFTY 2019-01-07 53     0.259      0.088       0.900
+BANKNIFTY 2020-11-25 58     0.257      0.173       0.185
+    NIFTY 2008-12-23 15     0.154      0.167       0.239
+    NIFTY 2009-09-14 27     0.306      0.148       0.272
+    NIFTY 2010-02-08 43     0.259      0.099       0.095
+    NIFTY 2011-12-02 45     0.251      0.134       0.126
+    NIFTY 2012-06-01 45     0.288      0.107       0.098
+    NIFTY 2013-06-03 43     0.203      0.150       0.138
+    NIFTY 2014-01-31 45     0.295      0.085       0.099
+    NIFTY 2015-08-06 45     0.288      0.119       0.691
+    NIFTY 2016-04-27 30     0.243      0.095       0.159
+    NIFTY 2017-08-09 45     0.275      0.162       0.260
+    NIFTY 2018-12-13 45     0.305      0.103       0.118
+    NIFTY 2019-01-07 45     0.268      0.081       0.158
+(dense = observed strike range of each expiry, gated; extrap = K/F 0.85-1.15, information only)
+
+Parameter recovery (identifiability):
+                          v0   kappa   theta   sigma     rho     lam    mu_j   delta
+median |fit - truth|  0.0012  1.9578  0.0025  0.0846  0.0368  0.0774  0.0304  0.0293
+median |truth|        0.0353  5.9717  0.0209  0.6081  0.5624  0.2683  0.0779  0.1450
+[PASS] C1 recovery: fit at noise level on 96%, true smile reproduced (<= 0.3 vol pt) on 96% of 24 chains
+
+====================================================================================================
+C2-C4 coverage, nesting, IV coverage
+====================================================================================================
+[PASS] C2 coverage: all three fitted on 100.00% of 8678 sessions; Bates converged on 100.00%
+[PASS] C3 nesting: Bates <= both sub-models on 99.97%
+[PASS] C4 IV coverage: 0.001% of model prices without IV
+
+====================================================================================================
+FIT QUALITY (median RMSE, vol points): in-sample / hidden strikes / next day
+====================================================================================================
+                               days  insample  hidden  next_day  p90_insample
+symbol    era        model                                                   
+BANKNIFTY 2008-13    bates      889     0.484   0.653     0.975         1.044
+                     bates_ev     3     1.078   2.959       NaN         1.936
+                     heston     889     0.678   0.691     0.991         1.640
+                     merton     889     0.756   0.872     1.116         2.242
+          2014-19    bates     1478     0.423   0.560     0.822         1.122
+                     bates_ev   188     0.504   0.638     0.962         0.942
+                     heston    1478     0.718   0.766     0.925         1.997
+                     merton    1478     0.956   1.068     1.133         2.542
+          2020-Nov24 bates     1214     0.661   0.674     0.956         1.788
+                     bates_ev   195     0.543   0.501     0.817         1.072
+                     heston    1214     1.134   0.985     1.111         2.977
+                     merton    1214     1.250   1.233     1.344         3.679
+          Nov24-now  bates      464     0.256   0.279     0.358         0.536
+                     bates_ev    81     0.198   0.169     0.303         0.413
+                     heston     464     0.472   0.448     0.510         0.995
+                     merton     464     0.668   0.623     0.702         1.753
+NIFTY     2008-13    bates     1477     0.468   0.547     0.727         1.218
+                     bates_ev    89     0.884   0.885     1.392         1.875
+                     heston    1477     0.758   0.682     0.853         1.849
+                     merton    1477     1.447   1.507     1.585         2.923
+          2014-19    bates     1478     0.356   0.376     0.493         0.893
+                     bates_ev   269     0.400   0.410     0.587         0.938
+                     heston    1478     0.600   0.532     0.632         1.645
+                     merton    1478     0.869   0.885     0.933         2.168
+          2020-Nov24 bates     1214     0.580   0.574     0.765         1.295
+                     bates_ev   209     0.503   0.479     0.714         0.985
+                     heston    1214     0.997   0.848     0.945         2.245
+                     merton    1214     1.111   1.063     1.164         2.573
+          Nov24-now  bates      464     0.314   0.290     0.504         0.845
+                     bates_ev    75     0.243   0.210     0.500         0.634
+                     heston     464     0.610   0.487     0.644         1.328
+                     merton     464     0.693   0.635     0.762         1.734
+
+====================================================================================================
+DOES THE RICHER MODEL EARN ITS KEEP? paired differences (simpler - richer), vol pts
+====================================================================================================
+test simpler   richer          period    n  mean_gain  median_gain  richer_wins       t  p_bonf
+hold  heston    bates discovery <2018  860     0.1837       0.1009       0.8209 14.9220     0.0
+hold  heston    bates  holdout >=2018  876     0.2949       0.2297       0.9646 27.4524     0.0
+hold  merton    bates discovery <2018  860     0.7438       0.4832       0.8988 20.3039     0.0
+hold  merton    bates  holdout >=2018  876     0.7680       0.4511       0.9897 16.7832     0.0
+hold   bates bates_ev discovery <2018   63     0.2998       0.0735       0.8413  4.8921     0.0
+hold   bates bates_ev  holdout >=2018  171     0.2831       0.0902       0.8830  6.2567     0.0
+next  heston    bates discovery <2018 4277     0.1577       0.0874       0.7505  9.9435     0.0
+next  heston    bates  holdout >=2018 4320     0.1760       0.1635       0.8648 37.1110     0.0
+next  merton    bates discovery <2018 4277     0.5932       0.4011       0.8695 35.5606     0.0
+next  merton    bates  holdout >=2018 4320     0.6492       0.3697       0.9588 32.0882     0.0
+next   bates bates_ev discovery <2018  277     0.3016       0.0528       0.7617  9.1304     0.0
+next   bates bates_ev  holdout >=2018  747     0.3375       0.0724       0.8193 12.3227     0.0
+
+verdict (significant gain p_bonf<0.01 in both periods, both tests):
+  bates over heston: EARNS ITS KEEP
+  bates over merton: EARNS ITS KEEP
+  bates_ev over bates: EARNS ITS KEEP
+
+====================================================================================================
+PARAMETERS: share of days at a bound
+====================================================================================================
+  heston    v0 1%  kappa 59%  theta 5%  sigma 2%  rho 0%
+  merton    v0 0%  lam 15%  mu_j 1%  delta 5%
+  bates     v0 1%  kappa 41%  theta 21%  sigma 1%  rho 21%  lam 8%  mu_j 3%  delta 19%
+  bates_ev  v0 3%  kappa 36%  theta 26%  sigma 0%  rho 26%  lam 8%  mu_j 1%  delta 12%  psi 13%
+
+====================================================================================================
+BATES PARAMETERS by era (median) and day-to-day stability (median |change|)
+====================================================================================================
+                       p_v0  p_kappa  p_theta  p_sigma  p_rho  p_lam  p_mu_j  p_delta
+symbol    era                                                                        
+BANKNIFTY 2008-13     0.048    2.657    0.000    0.678 -0.414  0.696  -0.066    0.110
+          2014-19     0.028   14.256    0.024    0.647 -0.513  1.216  -0.023    0.072
+          2020-Nov24  0.038   25.000    0.021    0.612 -0.620  0.597  -0.031    0.134
+          Nov24-now   0.021   17.617    0.012    0.533 -0.474  0.201  -0.046    0.157
+NIFTY     2008-13     0.043    3.473    0.076    0.852 -0.625  0.423  -0.077    0.156
+          2014-19     0.017   11.146    0.017    0.574 -0.590  0.464  -0.040    0.106
+          2020-Nov24  0.021   15.943    0.019    0.474 -0.725  0.280  -0.049    0.153
+          Nov24-now   0.015   12.582    0.012    0.354 -0.589  0.285  -0.037    0.121
+
+median |daily change|:
+p_v0       0.0042
+p_kappa    2.7388
+p_theta    0.0058
+p_sigma    0.1748
+p_rho      0.0976
+p_lam      0.3261
+p_mu_j     0.0207
+p_delta    0.0374
+
+implied quantities (median): ATM-vol sqrt(v0) %, jump crash size e^mu-1 %, jumps/year
+                      vol_now  vol_longrun  jump_mean_pct  jumps_per_year
+symbol    era                                                            
+BANKNIFTY 2008-13       21.93         2.07          -6.40            0.70
+          2014-19       16.86        15.43          -2.30            1.22
+          2020-Nov24    19.42        14.66          -3.03            0.60
+          Nov24-now     14.37        11.06          -4.52            0.20
+NIFTY     2008-13       20.67        27.60          -7.39            0.42
+          2014-19       13.04        12.85          -3.88            0.46
+          2020-Nov24    14.36        13.68          -4.78            0.28
+          Nov24-now     12.08        10.78          -3.67            0.29
+
+====================================================================================================
+SYSTEMATIC MISFIT: mean Bates IV error (model - market, vol pts) by moneyness x maturity
+====================================================================================================
+T_b             (0, 7]  (7, 14]  (14, 35]  (35, 100]
+k_b                                                 
+(-1.0, -0.1]     -2.26    -0.01      0.03      -0.19
+(-0.1, -0.05]    -0.59     0.12      0.05      -0.02
+(-0.05, -0.02]   -0.48     0.13     -0.01      -0.06
+(-0.02, 0.0]     -0.37     0.18     -0.05      -0.05
+(0.0, 0.02]      -0.41     0.10     -0.03      -0.02
+(0.02, 0.05]     -0.52     0.00     -0.04      -0.02
+(0.05, 0.1]      -0.77    -0.05     -0.02       0.02
+(0.1, 1.0]       -3.71    -0.49     -0.04      -0.06
+
+====================================================================================================
+SCHEDULED EVENTS: implied event move (psi) on the sessions before, vs realised move
+====================================================================================================
+   symbol      event     type  days  psi_pct  realised_pct  gain_vs_bates
+BANKNIFTY 2011-02-28   budget     2     2.29         -0.00           0.00
+BANKNIFTY 2015-02-28   budget     6     0.00          3.18           0.05
+BANKNIFTY 2016-02-29   budget     7     1.25          1.12           0.00
+BANKNIFTY 2017-02-01   budget     4     0.00          2.56           0.00
+BANKNIFTY 2018-02-01   budget     4     1.79         -0.58           0.50
+BANKNIFTY 2019-02-01   budget     8     1.84         -0.77           0.37
+BANKNIFTY 2019-05-23 election     4     6.86         -0.39           5.89
+BANKNIFTY 2019-07-05   budget     8     1.39          0.01           0.30
+BANKNIFTY 2020-02-01   budget     7     2.87         -3.34           1.51
+BANKNIFTY 2021-02-01   budget     6     2.91          7.93           0.62
+BANKNIFTY 2022-02-01   budget     5     3.29          1.39           1.46
+BANKNIFTY 2023-02-01   budget     4     1.89         -0.35           0.55
+BANKNIFTY 2024-02-01   budget     7     1.55          0.42           0.10
+BANKNIFTY 2024-06-04 election     5     4.76         -8.28           3.49
+BANKNIFTY 2024-07-23   budget     4     1.83         -0.97           0.52
+BANKNIFTY 2025-02-01   budget     7     1.81         -0.16           0.07
+BANKNIFTY 2026-02-01   budget     4     1.57         -2.02           0.11
+    NIFTY 2008-02-29   budget     8     1.99         -1.17           0.08
+    NIFTY 2009-07-06   budget     2     2.65         -6.02           0.01
+    NIFTY 2010-02-26   budget     7     3.35          1.28           0.19
+    NIFTY 2011-02-28   budget     7     2.04          0.56           0.06
+    NIFTY 2015-02-28   budget     6     3.74          0.65           0.78
+    NIFTY 2016-02-29   budget     7     3.44         -0.61           0.41
+    NIFTY 2017-02-01   budget     4     1.96          1.80           0.22
+    NIFTY 2018-02-01   budget     4     1.93         -0.10           0.14
+    NIFTY 2019-02-01   budget     8     1.79          0.58           0.16
+    NIFTY 2019-05-23 election     4     4.80         -0.69           4.09
+    NIFTY 2019-07-05   budget     8     1.43         -1.14           0.34
+    NIFTY 2020-02-01   budget     7     2.32         -2.54           1.17
+    NIFTY 2021-02-01   budget     6     2.38          4.63           0.52
+    NIFTY 2022-02-01   budget     5     2.26          1.36           0.58
+    NIFTY 2023-02-01   budget     4     1.39         -0.26           0.27
+    NIFTY 2024-02-01   budget     4     0.86         -0.13           0.06
+    NIFTY 2024-06-04 election     6     3.96         -6.11           2.28
+    NIFTY 2024-07-23   budget     5     1.74         -0.12           0.54
+    NIFTY 2025-02-01   budget     7     2.25         -0.11           0.70
+    NIFTY 2026-02-01   budget     4     1.69         -1.98           0.42
+
+  median implied event sd 1.96%, median |realised| 0.97%, corr(psi, |realised|) 0.24  (n=37)
+
+====================================================================================================
+GATES
+====================================================================================================
+[PASS] C0 pricer mode: max |diff|/vega 2.8e-11 vol pt
+[PASS] C1 recovery: fit at noise level on 96%, true smile reproduced (<= 0.3 vol pt) on 96% of 24 chains
+[PASS] C2 coverage: all three fitted on 100.00% of 8678 sessions; Bates converged on 100.00%
+[PASS] C3 nesting: Bates <= both sub-models on 99.97%
+[PASS] C4 IV coverage: 0.001% of model prices without IV

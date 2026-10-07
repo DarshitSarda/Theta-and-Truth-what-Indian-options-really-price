@@ -1,0 +1,24 @@
+====================================================================================================
+NIFTY: live days 2026-07-13 .. 2026-10-06
+====================================================================================================
+  A priced vs realised: 135 (day, expiry) rows over 12 settled expiries
+    realised / Bates-priced variance: median expiry 0.45, mean 0.63, expiries with realised < priced 83%
+    realised / P-model variance:      median expiry 0.59, mean 0.81, expiries with realised < P 67%
+    final move inside the priced +/-1 sd: 67% of rows (a correct Q would give ~68%, a premium-carrying one more)
+  B rich/cheap: 6,226 option outcomes, 135 day x expiry cross-sections, 12 settled expiries
+    IC naive S_N          +0.178 (t +4.28, 12 expiries, 92% positive)
+    IC Bates S_P          +0.207 (t +5.30, 12 expiries, 92% positive)   (Stage 5 holdout +0.16)
+    Bates beyond naive b  +0.171 (t +2.72, 12 expiries, 83% positive)   (Stage 5 holdout +0.19)
+    long-short Rs/Rs100   +7.795 (t +1.22, 12 expiries, 75% positive)   (Stage 5 holdout +3.8; costs ~6 per leg)
+====================================================================================================
+BANKNIFTY: live days 2026-07-13 .. 2026-10-06
+====================================================================================================
+  A priced vs realised: 77 (day, expiry) rows over 3 settled expiries
+    realised / Bates-priced variance: median expiry 0.54, mean 0.63, expiries with realised < priced 67%
+    realised / P-model variance:      median expiry 0.56, mean 0.67, expiries with realised < P 67%
+    final move inside the priced +/-1 sd: 47% of rows (a correct Q would give ~68%, a premium-carrying one more)
+  B rich/cheap: 4,754 option outcomes, 77 day x expiry cross-sections, 3 settled expiries
+    IC naive S_N          +0.141 (t +3.85, 3 expiries, 100% positive)
+    IC Bates S_P          +0.052 (t +0.98, 3 expiries, 67% positive)   (Stage 5 holdout +0.16)
+    Bates beyond naive b  -0.024 (t -0.27, 3 expiries, 67% positive)   (Stage 5 holdout +0.19)
+    long-short Rs/Rs100   +2.614 (t +1.86, 3 expiries, 100% positive)   (Stage 5 holdout +3.8; costs ~6 per leg)

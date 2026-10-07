@@ -1,0 +1,4 @@
+2008-2017: corr(stage5, sameclose) per cycle 0.9711; sameclose +2.26%, sameclose on forward +1.84% (corr 0.9712), + hedge into settlement +3.95% (corr 0.9984); real + hedge into settlement -1.44%; hedgelag -2.81%
+2008-2017: gross %/yr  stage5 +4.12%  allclose -1.47%  optclose +0.13%  real -1.44% | premium sold 126%/yr; entry close-VWAP median +0.17% of premium, mean +1.08%; fill session counts {1: 212, 2: 2, 3: 1}
+2018-2026: corr(stage5, sameclose) per cycle 0.9930; sameclose +8.48%, sameclose on forward +8.52% (corr 0.9931), + hedge into settlement +8.90% (corr 0.9995); real + hedge into settlement +4.56%; hedgelag +5.24%
+2018-2026: gross %/yr  stage5 +9.00%  allclose +5.63%  optclose +5.08%  real +4.56% | premium sold 112%/yr; entry close-VWAP median -0.72% of premium, mean +0.23%; fill session counts {1: 208}
