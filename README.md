@@ -20,12 +20,12 @@ prominently as positive ones.
 
 | Question | Answer |
 |---|---|
-| Are options overpriced? | **Yes, consistently.** Implied variance is 1.2-1.6x realised variance in every era since 2008; a delta-hedged option buyer loses 32-47% of premium. A variance seller wins 67-72% of windows. |
+| Are options overpriced? | **Yes, consistently.** Implied variance is 1.2-1.6x realised variance in every era since 2008; a delta-hedged option buyer loses 32-47% of premium before costs (45-60% after costs). A variance seller wins 67-72% of windows. |
 | Did the 2020 retail boom or SEBI's Nov-2024 F&O rules change that? | **No.** Difference-in-differences (BANKNIFTY vs NIFTY, 144 placebo dates): no change in any pricing outcome. |
-| Can a pricing model pick the "most overpriced" strikes? | **No.** Bates rich/cheap rankings are statistically real (t 8.7 in the holdout) but worth ~Rs 3.8 per Rs 100 of premium against ~Rs 6 of costs. Ridge and gradient-boosting strike pickers (walk-forward, 1-5 year windows) do not beat selling everything. |
+| Can a pricing model pick the "most overpriced" strikes? | **No.** Bates rich/cheap rankings are statistically real (t 8.7 in the holdout) but worth ~Rs 3.8 per Rs 100 of premium per leg (bought the session after the signal) against ~Rs 14 of costs per leg, including hedging. Ridge and gradient-boosting strike pickers (walk-forward, 1-5 year windows) do not beat selling everything. |
 | Does option positioning (PCR, OI walls, max pain, skew, ...) time market bounces? | **No.** 13 features, 18 years, circular-shift placebos, Bonferroni holdout: nothing passes. |
 | Can an incrementally learning model forecast volatility better than the market? | **No.** A daily-refitted HAR / GARCH / implied blend does not beat implied volatility out of sample (2018-2026, Holm p = 1.0). The market already prices what is forecastable. |
-| Does a hedged monthly short straddle make money in an idealised backtest? | Yes: +6.2%/yr over cash 2018-2026 (Sharpe 0.58), +1.4%/yr 2008-2017. |
+| Does a hedged monthly short straddle make money in an idealised backtest? | Yes: +6.3%/yr over cash 2018-2026 (Sharpe 0.57), +1.4%/yr 2008-2017. |
 | ...with whole lots, Zerodha costs, next-day VWAP execution? | **No, at any account size (Rs 10 lakh to 5 crore).** The one-day hedging lag alone costs 3-5%/yr. |
 | ...hedging near the close (exploratory)? | +3.8 to +5.6%/yr over cash 2018-2026 with zero extra slippage; breakeven with 2 bp; negative with 5 bp. **The edge is real but thin and execution-bound.** |
 
